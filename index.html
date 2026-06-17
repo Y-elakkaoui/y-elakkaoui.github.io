@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Younesse El Akkaoui | Cybersecurity & Systems Integration</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration for Cyber Theme -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'], // Added for terminal aesthetic
+                    },
+                    colors: {
+                        cyber: {
+                            dark: '#0a0f18',
+                            panel: '#111827',
+                            border: '#1f2937',
+                            cyan: '#06b6d4',
+                            cyanGlow: 'rgba(6, 182, 212, 0.5)',
+                            green: '#10b981',
+                        }
+                    },
+                    boxShadow: {
+                        'neon-cyan': '0 0 15px rgba(6, 182, 212, 0.5)',
+                        'neon-green': '0 0 15px rgba(16, 185, 129, 0.5)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #0a0f18;
+            color: #d1d5db;
+            overflow-x: hidden;
+        }
+
+        /* Cyber grid background pattern */
+        .bg-grid-pattern {
+            background-image: 
+                linear-gradient(to right, rgba(31, 41, 55, 0.2) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(31, 41, 55, 0.2) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        /* Animated Typing Cursor */
+        .typing-cursor::after {
+            content: '|';
+            animation: blink 1s step-end infinite;
+            color: #06b6d4;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Circuit Board Timeline */
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 1.5rem;
+            width: 2px;
+            background: linear-gradient(to bottom, #06b6d4, #10b981);
+            box-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+        }
+        @media (min-width: 768px) {
+            .timeline-line::before {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Canvas Background */
+        #network-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: auto; /* Allow mouse interaction */
+        }
+
+        /* Glitch text effect on hover */
+        .glitch-hover:hover {
+            animation: glitch-skew 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+            color: #06b6d4;
+        }
+        @keyframes glitch-skew {
+            0% { transform: skew(0deg); }
+            20% { transform: skew(-10deg); }
+            40% { transform: skew(10deg); }
+            60% { transform: skew(-5deg); }
+            80% { transform: skew(5deg); }
+            100% { transform: skew(0deg); }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-cyber-cyan selection:text-white bg-grid-pattern relative">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-cyber-dark/80 backdrop-blur-md border-b border-cyber-border transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center z-50">
+                    <a href="#home" class="text-xl font-bold font-mono text-white tracking-tight glitch-hover">
+                        >_Younesse<span class="text-cyber-cyan">.sys</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center z-50">
+                    <a href="#profile" class="text-sm font-mono text-gray-400 hover:text-cyber-cyan transition-colors">~/profile</a>
+                    <a href="#expertise" class="text-sm font-mono text-gray-400 hover:text-cyber-cyan transition-colors">~/expertise</a>
+                    <a href="#experience" class="text-sm font-mono text-gray-400 hover:text-cyber-cyan transition-colors">~/experience</a>
+                    <a href="#contact" class="px-5 py-2 rounded border border-cyber-cyan text-cyber-cyan font-mono text-sm hover:bg-cyber-cyan hover:text-cyber-dark transition-all shadow-neon-cyan">
+                        INITIATE_CONTACT
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center z-50">
+                    <button id="mobile-menu-btn" class="text-gray-400 hover:text-cyber-cyan focus:outline-none p-2">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="md:hidden absolute w-full bg-cyber-panel border-b border-cyber-border hidden shadow-2xl">
+            <div class="px-4 pt-2 pb-4 space-y-2 flex flex-col font-mono">
+                <a href="#profile" class="mobile-link block px-3 py-2 rounded-md text-base text-gray-300 hover:text-cyber-cyan hover:bg-cyber-dark/50">~/profile</a>
+                <a href="#expertise" class="mobile-link block px-3 py-2 rounded-md text-base text-gray-300 hover:text-cyber-cyan hover:bg-cyber-dark/50">~/expertise</a>
+                <a href="#experience" class="mobile-link block px-3 py-2 rounded-md text-base text-gray-300 hover:text-cyber-cyan hover:bg-cyber-dark/50">~/experience</a>
+                <a href="#contact" class="mobile-link block px-3 py-2 mt-2 text-center rounded-md bg-cyber-cyan text-cyber-dark text-base font-bold">INITIATE_CONTACT</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="relative pt-32 pb-20 md:pt-40 md:pb-28 px-4 overflow-hidden min-h-screen flex items-center">
+        <!-- Interactive Network Canvas Background -->
+        <canvas id="network-canvas"></canvas>
+        
+        <!-- Gradient overlay to ensure text readability -->
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-cyber-dark/80 to-cyber-dark z-0"></div>
+
+        <div class="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center gap-12 relative z-10 w-full">
+            
+            <!-- Hero Text -->
+            <div class="w-full md:w-3/5 flex flex-col items-start text-left">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded border border-cyber-green/50 bg-cyber-green/10 text-cyber-green font-mono text-sm mb-6 shadow-neon-green">
+                    <span class="relative flex h-2.5 w-2.5">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyber-green opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyber-green"></span>
+                    </span>
+                    STATUS: Seeking IT Apprenticeship in Germany
+                </div>
+                
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-2">
+                    System Access Granted. <br/>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyber-cyan to-blue-500">I am Younesse.</span>
+                </h1>
+                
+                <!-- Typing Effect Container -->
+                <div class="h-8 md:h-10 mb-6">
+                    <h2 class="text-xl md:text-2xl font-mono text-cyber-cyan typing-cursor" id="typing-text"></h2>
+                </div>
+
+                <p class="text-gray-400 mb-8 max-w-xl leading-relaxed text-lg border-l-2 border-cyber-border pl-4">
+                    Dedicated and tech-savvy professional with a solid background in cybersecurity and IT support. Ready to launch my career in Germany as an IT Specialist for Systems Integration.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto font-mono">
+                    <a href="#contact" class="px-8 py-3 rounded bg-cyber-cyan text-cyber-dark font-bold hover:bg-cyan-300 transition-all shadow-neon-cyan text-center flex items-center justify-center gap-2">
+                        <i class="fas fa-terminal"></i> Execute Contact
+                    </a>
+                    <a href="https://github.com/Y-elakkaoui" target="_blank" class="px-8 py-3 rounded border border-gray-600 text-gray-300 hover:text-white hover:border-cyber-cyan transition-all text-center flex items-center justify-center gap-2 bg-cyber-panel/50 backdrop-blur-sm">
+                        <i class="fab fa-github text-lg"></i> View Source
+                    </a>
+                </div>
+                
+                <!-- Quick Info -->
+                <div class="mt-10 flex flex-wrap gap-6 text-sm font-mono text-gray-500">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-map-marker-alt text-cyber-cyan"></i> Location: Morocco (Willing to Relocate)
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-language text-cyber-cyan"></i> Lang: German B1 (Prep: B2)
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full md:w-2/5 flex justify-center md:justify-end">
+                <div class="relative w-64 h-64 md:w-80 md:h-80 group">
+                    <!-- Rotating Cyber Rings -->
+                    <div class="absolute inset-0 rounded-full border border-cyber-cyan/30 border-t-cyber-cyan animate-[spin_10s_linear_infinite]"></div>
+                    <div class="absolute inset-2 rounded-full border border-blue-500/30 border-b-blue-500 animate-[spin_15s_linear_infinite_reverse]"></div>
+                    <div class="absolute inset-4 rounded-full border border-cyber-green/30 border-l-cyber-green animate-[spin_8s_linear_infinite]"></div>
+                    
+                    <!-- Hexagon Image Container (using CSS clip-path for hex shape) -->
+                    <div class="absolute inset-6 bg-[#0a0f18] overflow-hidden z-10 flex items-center justify-center" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);">
+                        <!-- Custom Animated Cyber Core Graphic (You can replace this SVG with an <img> tag of your photo later if you wish) -->
+                        <svg viewBox="0 0 100 100" class="w-full h-full opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 ease-in-out">
+                            <defs>
+                                <linearGradient id="cyberGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#06b6d4" />
+                                    <stop offset="100%" stop-color="#10b981" />
+                                </linearGradient>
+                                <radialGradient id="glow" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                                    <stop offset="0%" stop-color="rgba(6, 182, 212, 0.4)" />
+                                    <stop offset="100%" stop-color="transparent" />
+                                </radialGradient>
+                            </defs>
+                            
+                            <!-- Background glow -->
+                            <rect width="100" height="100" fill="url(#glow)" />
+                            
+                            <!-- Hexagon grid pattern -->
+                            <pattern id="hexGrid" width="10" height="17.32" patternUnits="userSpaceOnUse">
+                                <path d="M5 0 L10 2.88 L10 8.66 L5 11.54 L0 8.66 L0 2.88 Z" fill="none" stroke="rgba(31, 41, 55, 0.4)" stroke-width="0.5"/>
+                            </pattern>
+                            <rect width="100" height="100" fill="url(#hexGrid)" />
+                            
+                            <!-- Outer rotating dashed ring -->
+                            <circle cx="50" cy="50" r="35" fill="none" stroke="#1f2937" stroke-width="1" />
+                            <circle cx="50" cy="50" r="35" fill="none" stroke="#06b6d4" stroke-width="1.5" stroke-dasharray="10 15 30 15">
+                                <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="15s" repeatCount="indefinite" />
+                            </circle>
+                            
+                            <!-- Middle rotating ring -->
+                            <circle cx="50" cy="50" r="26" fill="none" stroke="#10b981" stroke-width="1" stroke-dasharray="4 4 15 4">
+                                <animateTransform attributeName="transform" type="rotate" from="360 50 50" to="0 50 50" dur="10s" repeatCount="indefinite" />
+                            </circle>
+                            
+                            <!-- Inner circuitry / nodes -->
+                            <path d="M 50 24 L 50 15 M 50 76 L 50 85 M 24 50 L 15 50 M 76 50 L 85 50" stroke="#06b6d4" stroke-width="1" opacity="0.6">
+                                <animate attributeName="opacity" values="0.2;1;0.2" dur="3s" repeatCount="indefinite" />
+                            </path>
+                            <circle cx="50" cy="15" r="1.5" fill="#06b6d4" />
+                            <circle cx="50" cy="85" r="1.5" fill="#06b6d4" />
+                            <circle cx="15" cy="50" r="1.5" fill="#06b6d4" />
+                            <circle cx="85" cy="50" r="1.5" fill="#06b6d4" />
+
+                            <!-- Central Name Display -->
+                            <!-- Dark background pill to ensure text readability -->
+                            <rect x="15" y="35" width="70" height="30" rx="4" fill="rgba(10, 15, 24, 0.9)" stroke="rgba(6, 182, 212, 0.3)" stroke-width="0.5" />
+                            
+                            <text x="50" y="47" font-family="'Fira Code', monospace" font-size="11" font-weight="bold" fill="#06b6d4" text-anchor="middle">
+                                Younesse
+                                <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite" />
+                            </text>
+                            
+                            <text x="50" y="58" font-family="'Fira Code', monospace" font-size="8.5" font-weight="bold" fill="#10b981" text-anchor="middle" letter-spacing="0.5">
+                                EL AKKAOUI
+                                <animate attributeName="opacity" values="0.6;1;0.6" dur="3s" repeatCount="indefinite" />
+                            </text>
+                            
+                            <!-- Scanning line -->
+                            <line x1="0" y1="0" x2="100" y2="0" stroke="rgba(6, 182, 212, 0.3)" stroke-width="2">
+                                <animate attributeName="y1" values="0;100;0" dur="4s" repeatCount="indefinite" />
+                                <animate attributeName="y2" values="0;100;0" dur="4s" repeatCount="indefinite" />
+                            </line>
+                        </svg>
+                    </div>
+                    
+                    <!-- Floating badge -->
+                    <div class="absolute -bottom-2 -left-6 bg-cyber-panel px-4 py-2 rounded border border-cyber-cyan/50 shadow-neon-cyan z-20 flex items-center gap-3 font-mono">
+                        <div class="text-cyber-cyan animate-pulse">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-400">Target Role</p>
+                            <p class="text-sm font-bold text-white">Aspiring SysAdmin</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="profile" class="py-20 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                
+                <!-- Terminal Window UI -->
+                <div class="bg-cyber-panel rounded-lg border border-cyber-border shadow-2xl overflow-hidden">
+                    <!-- Terminal Header -->
+                    <div class="bg-[#1f2937] px-4 py-2 flex items-center gap-2 border-b border-cyber-border">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        <span class="ml-4 text-xs font-mono text-gray-400">root@younesse:~# cat motivation.txt</span>
+                    </div>
+                    <!-- Terminal Body -->
+                    <div class="p-6 font-mono text-sm md:text-base text-gray-300 leading-relaxed">
+                        <p class="mb-4"><span class="text-cyber-green">younesse@system:~$</span> <span class="text-cyber-cyan">whoami</span></p>
+                        <p class="mb-6 ml-4">I am an engaged and tech-savvy IT enthusiast with a strong, growing foundation in cybersecurity. I have practical experience in IT support, network security, and system analysis, and I am eager to learn more.</p>
+                        
+                        <p class="mb-4"><span class="text-cyber-green">younesse@system:~$</span> <span class="text-cyber-cyan">cat current_objective.log</span></p>
+                        <p class="mb-6 ml-4">Currently, I am highly motivated to start an apprenticeship as an <strong class="text-white">IT Specialist for Systems Integration</strong> (Fachinformatiker für Systemintegration) in Germany. My goal is to further develop my skills in practice and actively secure and optimize a company's infrastructure.</p>
+                        
+                        <div class="grid grid-cols-2 gap-4 mt-6 pt-6 border-t border-cyber-border/50">
+                            <div>
+                                <span class="block text-xs text-gray-500 mb-1">DATE_OF_BIRTH</span>
+                                <span class="text-white">July 19, 2004</span>
+                            </div>
+                            <div>
+                                <span class="block text-xs text-gray-500 mb-1">DRIVERS_LICENSE</span>
+                                <span class="text-white">Class B, C</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tech Focus Areas -->
+                <div>
+                    <div class="mb-8">
+                        <span class="text-cyber-cyan font-mono text-sm tracking-wider uppercase mb-2 block">/* Core Architecture */</span>
+                        <h2 class="text-3xl font-bold text-white">System & Network Focus</h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="bg-cyber-panel/50 p-5 rounded border border-cyber-border hover:border-cyber-cyan transition-colors group">
+                            <i class="fas fa-network-wired text-2xl text-cyber-cyan mb-3 group-hover:scale-110 transition-transform"></i>
+                            <h3 class="text-lg font-bold text-white mb-1">Networking</h3>
+                            <p class="text-sm text-gray-400">IP protocols, DHCP, Wi-Fi, and network infrastructure monitoring via SNMP.</p>
+                        </div>
+                        <div class="bg-cyber-panel/50 p-5 rounded border border-cyber-border hover:border-cyber-cyan transition-colors group">
+                            <i class="fas fa-shield-virus text-2xl text-cyber-green mb-3 group-hover:scale-110 transition-transform"></i>
+                            <h3 class="text-lg font-bold text-white mb-1">Cybersecurity</h3>
+                            <p class="text-sm text-gray-400">Implementation of VPNs, Firewalls, IDS/IPS, and vulnerability identification.</p>
+                        </div>
+                        <div class="bg-cyber-panel/50 p-5 rounded border border-cyber-border hover:border-blue-500 transition-colors group">
+                            <i class="fas fa-server text-2xl text-blue-500 mb-3 group-hover:scale-110 transition-transform"></i>
+                            <h3 class="text-lg font-bold text-white mb-1">Systems Integration</h3>
+                            <p class="text-sm text-gray-400">Windows & Linux administration, Virtualization (VMware, VirtualBox).</p>
+                        </div>
+                        <div class="bg-cyber-panel/50 p-5 rounded border border-cyber-border hover:border-purple-500 transition-colors group">
+                            <i class="fas fa-headset text-2xl text-purple-500 mb-3 group-hover:scale-110 transition-transform"></i>
+                            <h3 class="text-lg font-bold text-white mb-1">IT Support</h3>
+                            <p class="text-sm text-gray-400">1st-Level-Support, diagnostics, and resolution of technical disruptions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="expertise" class="py-20 relative bg-cyber-panel/30 border-y border-cyber-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-cyber-cyan font-mono text-sm tracking-wider uppercase mb-2 block">&lt;Capabilities/&gt;</span>
+                <h2 class="text-3xl font-bold text-white">Technical Arsenal & Languages</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                
+                <!-- Tech Stack -->
+                <div class="bg-cyber-panel p-8 rounded-lg border border-cyber-border relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-cyber-cyan/5 rounded-full blur-3xl"></div>
+                    
+                    <h3 class="text-xl font-mono font-bold text-white mb-6 flex items-center gap-3">
+                        <i class="fas fa-laptop-code text-cyber-cyan"></i> system_protocols
+                    </h3>
+                    
+                    <div class="flex flex-wrap gap-2 mb-10">
+                        <span class="px-3 py-1 bg-cyber-dark text-cyber-cyan rounded border border-cyber-cyan/30 text-sm font-mono hover:bg-cyber-cyan hover:text-cyber-dark cursor-default transition-colors">Windows & Linux</span>
+                        <span class="px-3 py-1 bg-cyber-dark text-cyber-cyan rounded border border-cyber-cyan/30 text-sm font-mono hover:bg-cyber-cyan hover:text-cyber-dark cursor-default transition-colors">Networking (IP, DHCP)</span>
+                        <span class="px-3 py-1 bg-cyber-dark text-cyber-cyan rounded border border-cyber-cyan/30 text-sm font-mono hover:bg-cyber-cyan hover:text-cyber-dark cursor-default transition-colors">VMware & VirtualBox</span>
+                        <span class="px-3 py-1 bg-cyber-dark text-cyber-cyan rounded border border-cyber-cyan/30 text-sm font-mono hover:bg-cyber-cyan hover:text-cyber-dark cursor-default transition-colors">IT Support</span>
+                        <span class="px-3 py-1 bg-cyber-dark text-cyber-cyan rounded border border-cyber-cyan/30 text-sm font-mono hover:bg-cyber-cyan hover:text-cyber-dark cursor-default transition-colors">Python Scripting</span>
+                        <span class="px-3 py-1 bg-cyber-dark text-cyber-cyan rounded border border-cyber-cyan/30 text-sm font-mono hover:bg-cyber-cyan hover:text-cyber-dark cursor-default transition-colors">VPN & Firewalls</span>
+                        <span class="px-3 py-1 bg-cyber-dark text-cyber-cyan rounded border border-cyber-cyan/30 text-sm font-mono hover:bg-cyber-cyan hover:text-cyber-dark cursor-default transition-colors">IDS/IPS Systems</span>
+                    </div>
+
+                    <h3 class="text-xl font-mono font-bold text-white mb-6 flex items-center gap-3 border-t border-cyber-border pt-6">
+                        <i class="fas fa-certificate text-cyber-green"></i> security_clearances
+                    </h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3 bg-cyber-dark/50 p-3 rounded border border-cyber-border">
+                            <i class="fas fa-crosshairs text-cyber-cyan mt-1 animate-pulse"></i>
+                            <div>
+                                <span class="block font-bold text-white">Junior Penetration Tester</span>
+                                <span class="block text-xs font-mono text-gray-400">TryHackMe (2026) - Training Active</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3 bg-cyber-dark/50 p-3 rounded border border-cyber-border">
+                            <i class="fab fa-google text-blue-400 mt-1"></i>
+                            <div>
+                                <span class="block font-bold text-white">Google Cybersecurity Professional</span>
+                                <span class="block text-xs font-mono text-gray-400">Coursera - In Progress [5/9 Completed, Working on 6/9]</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Languages Matrix -->
+                <div class="bg-cyber-panel p-8 rounded-lg border border-cyber-border relative">
+                    <h3 class="text-xl font-mono font-bold text-white mb-8 flex items-center gap-3">
+                        <i class="fas fa-language text-purple-400"></i> linguistic_modules
+                    </h3>
+                    
+                    <div class="space-y-6">
+                        <!-- German -->
+                        <div class="group">
+                            <div class="flex justify-between mb-1 font-mono">
+                                <span class="text-white">German.lang</span>
+                                <span class="text-sm font-bold text-cyber-cyan">B1 (Prep: B2)</span>
+                            </div>
+                            <div class="w-full bg-cyber-dark rounded-full h-1.5 overflow-hidden border border-cyber-border">
+                                <div class="bg-cyber-cyan h-1.5 shadow-neon-cyan relative" style="width: 60%">
+                                    <div class="absolute inset-0 bg-white/30 animate-[ping_2s_ease-in-out_infinite]"></div>
+                                </div>
+                            </div>
+                            <p class="text-xs font-mono text-gray-500 mt-2">> Certificate obtained. B2 exam scheduled Sep 2026.</p>
+                        </div>
+                        
+                        <!-- English -->
+                        <div>
+                            <div class="flex justify-between mb-1 font-mono">
+                                <span class="text-white">English.lang</span>
+                                <span class="text-sm font-bold text-blue-400">Fluent</span>
+                            </div>
+                            <div class="w-full bg-cyber-dark rounded-full h-1.5 overflow-hidden border border-cyber-border">
+                                <div class="bg-blue-500 h-1.5" style="width: 85%"></div>
+                            </div>
+                        </div>
+
+                        <!-- French -->
+                        <div>
+                            <div class="flex justify-between mb-1 font-mono">
+                                <span class="text-white">French.lang</span>
+                                <span class="text-sm font-bold text-gray-400">Good</span>
+                            </div>
+                            <div class="w-full bg-cyber-dark rounded-full h-1.5 overflow-hidden border border-cyber-border">
+                                <div class="bg-gray-500 h-1.5" style="width: 70%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Arabic -->
+                        <div>
+                            <div class="flex justify-between mb-1 font-mono">
+                                <span class="text-white">Arabic.lang</span>
+                                <span class="text-sm font-bold text-cyber-green">Native</span>
+                            </div>
+                            <div class="w-full bg-cyber-dark rounded-full h-1.5 overflow-hidden border border-cyber-border">
+                                <div class="bg-cyber-green h-1.5 shadow-neon-green" style="width: 100%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-20 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-cyber-cyan font-mono text-sm tracking-wider uppercase mb-2 block">execution_log.txt</span>
+                <h2 class="text-3xl font-bold text-white">Experience & Education</h2>
+            </div>
+
+            <div class="relative timeline-line pt-4 font-mono">
+                
+                <!-- Experience 1 (DXC) -->
+                <div class="relative flex flex-col md:flex-row items-start mb-12 group">
+                    <div class="hidden md:block w-1/2 pr-12 text-right">
+                        <span class="text-cyber-cyan font-bold block mb-1">Since 03/2026</span>
+                        <span class="text-xs bg-blue-900/50 text-blue-300 px-2 py-1 rounded border border-blue-700">WORK</span>
+                    </div>
+                    
+                    <div class="absolute left-[1.5rem] md:left-1/2 transform -translate-x-1/2 w-4 h-4 rounded bg-cyber-dark border-2 border-cyber-cyan flex items-center justify-center z-10 group-hover:scale-150 transition-transform duration-300 group-hover:shadow-neon-cyan">
+                        <div class="w-1 h-1 bg-cyber-cyan"></div>
+                    </div>
+                    
+                    <div class="pl-12 md:pl-0 md:w-1/2 md:pl-12">
+                        <div class="md:hidden mb-2">
+                            <span class="text-cyber-cyan text-sm font-bold block">Since 03/2026</span>
+                        </div>
+                        <div class="bg-cyber-panel p-5 rounded border border-cyber-border hover:border-cyber-cyan/50 transition-colors">
+                            <h3 class="text-xl font-bold text-white font-sans">Technical Support Agent</h3>
+                            <p class="text-cyber-green font-medium mb-3">DXC Technology</p>
+                            <ul class="text-gray-400 space-y-2 text-sm border-l border-cyber-border pl-3">
+                                <li>> Execution of 1st-Level-Support for technical disruptions.</li>
+                                <li>> Handling German customer inquiries (Phone, Email, Ticketing).</li>
+                                <li>> IT problem diagnosis & implementation of solutions.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education 1 (ENSIT) -->
+                <div class="relative flex flex-col md:flex-row items-start mb-12 group">
+                    <div class="hidden md:block w-1/2 pr-12 text-right">
+                         <div class="bg-cyber-panel p-5 rounded border border-cyber-border hover:border-cyber-cyan/50 transition-colors ml-auto max-w-md text-left">
+                            <h3 class="text-xl font-bold text-white font-sans">Cybersecurity Training</h3>
+                            <p class="text-purple-400 font-medium mb-3">ENSIT, Rabat</p>
+                            <ul class="text-gray-400 space-y-2 text-sm border-l border-cyber-border pl-3">
+                                <li>> Focus: Network protection & modern security concepts.</li>
+                                <li>> Status: Successfully completed.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute left-[1.5rem] md:left-1/2 transform -translate-x-1/2 w-4 h-4 rounded bg-cyber-dark border-2 border-purple-500 flex items-center justify-center z-10 group-hover:scale-150 transition-transform duration-300">
+                        <div class="w-1 h-1 bg-purple-500"></div>
+                    </div>
+                    
+                    <div class="pl-12 md:pl-0 md:w-1/2 md:pl-12 flex items-center">
+                        <div class="mb-2 w-full">
+                            <span class="text-purple-400 font-bold block mb-1">09/2025 - 01/2026</span>
+                            <span class="text-xs bg-purple-900/50 text-purple-300 px-2 py-1 rounded border border-purple-700">EDUCATION</span>
+                            
+                            <!-- Mobile only content -->
+                            <div class="md:hidden bg-cyber-panel p-5 rounded border border-cyber-border mt-3">
+                                <h3 class="text-xl font-bold text-white font-sans">Cybersecurity Training</h3>
+                                <p class="text-purple-400 font-medium mb-3">ENSIT, Rabat</p>
+                                <ul class="text-gray-400 space-y-2 text-sm border-l border-cyber-border pl-3">
+                                    <li>> Focus: Network protection & security concepts.</li>
+                                    <li>> Status: Successfully completed.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience 2 (ASTRA) -->
+                <div class="relative flex flex-col md:flex-row items-start mb-12 group">
+                    <div class="hidden md:block w-1/2 pr-12 text-right">
+                        <span class="text-cyber-green font-bold block mb-1">03/2024 - 04/2024</span>
+                        <span class="text-xs bg-green-900/50 text-green-300 px-2 py-1 rounded border border-green-700">INTERNSHIP</span>
+                    </div>
+                    
+                    <div class="absolute left-[1.5rem] md:left-1/2 transform -translate-x-1/2 w-4 h-4 rounded bg-cyber-dark border-2 border-cyber-green flex items-center justify-center z-10 group-hover:scale-150 transition-transform duration-300 shadow-neon-green">
+                         <div class="w-1 h-1 bg-cyber-green"></div>
+                    </div>
+                    
+                    <div class="pl-12 md:pl-0 md:w-1/2 md:pl-12">
+                        <div class="md:hidden mb-2">
+                            <span class="text-cyber-green text-sm font-bold block">03/2024 - 04/2024</span>
+                        </div>
+                        <div class="bg-cyber-panel p-5 rounded border border-cyber-border hover:border-cyber-green/50 transition-colors">
+                            <h3 class="text-xl font-bold text-white font-sans">IT Security Intern</h3>
+                            <p class="text-cyber-green font-medium mb-3">ASTRA EQUIPEMENT, Casablanca</p>
+                            <ul class="text-gray-400 space-y-2 text-sm border-l border-cyber-border pl-3">
+                                <li>> Vulnerability analysis & security audits.</li>
+                                <li>> Implemented security solutions: VPN, Firewall, IDS/IPS.</li>
+                                <li>> Network infrastructure monitoring via SNMP.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education 2 (Technician) -->
+                <div class="relative flex flex-col md:flex-row items-start group mb-12">
+                     <div class="hidden md:block w-1/2 pr-12 text-right">
+                         <div class="bg-cyber-panel p-5 rounded border border-cyber-border ml-auto max-w-md text-left">
+                            <h3 class="text-xl font-bold text-white font-sans">Certified Cybersecurity Technician</h3>
+                            <p class="text-gray-400 font-medium mb-3">OFPPT, Salé</p>
+                            <p class="text-gray-400 text-sm border-l border-cyber-border pl-3">> State-certified technician diploma in IT and Security.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute left-[1.5rem] md:left-1/2 transform -translate-x-1/2 w-4 h-4 rounded bg-cyber-dark border-2 border-gray-500 flex items-center justify-center z-10 group-hover:scale-150 transition-transform duration-300">
+                        <div class="w-1 h-1 bg-gray-500"></div>
+                    </div>
+                    
+                    <div class="pl-12 md:pl-0 md:w-1/2 md:pl-12 flex items-center">
+                        <div class="mb-2 w-full">
+                            <span class="text-gray-400 font-bold block mb-1">09/2023 - 06/2025</span>
+                            <span class="text-xs bg-gray-800 text-gray-300 px-2 py-1 rounded border border-gray-600">EDUCATION</span>
+                            
+                            <div class="md:hidden bg-cyber-panel p-5 rounded border border-cyber-border mt-3">
+                                <h3 class="text-xl font-bold text-white font-sans">Certified Cybersecurity Technician</h3>
+                                <p class="text-gray-400 font-medium mb-3">OFPPT, Salé</p>
+                                <p class="text-gray-400 text-sm border-l border-cyber-border pl-3">> State-certified technician diploma.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-cyber-dark relative overflow-hidden border-t border-cyber-border">
+        <!-- Background Ambient Glows -->
+        <div class="absolute top-0 right-0 w-96 h-96 rounded-full bg-cyber-cyan opacity-5 blur-[100px] pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-cyber-green opacity-5 blur-[100px] pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                
+                <!-- Contact Info -->
+                <div>
+                    <span class="text-cyber-cyan font-mono text-sm tracking-wider uppercase mb-2 block">ping_request</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Establish Connection</h2>
+                    <p class="text-gray-400 text-lg mb-10 max-w-md font-mono text-sm">
+                        > Looking for a motivated IT apprentice for your company? I look forward to your message and a potential interview via Teams/Zoom.
+                    </p>
+
+                    <div class="space-y-4 font-mono">
+                        <div class="flex items-center gap-4 bg-cyber-panel/50 p-4 rounded border border-cyber-border hover:border-cyber-cyan transition-colors">
+                            <div class="text-cyber-cyan text-xl w-8 text-center"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <h4 class="text-xs text-gray-500">EMAIL</h4>
+                                <a href="mailto:younesselakkaouics@gmail.com" class="text-white hover:text-cyber-cyan transition-colors break-all">younesselakkaouics@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-4 bg-cyber-panel/50 p-4 rounded border border-cyber-border hover:border-cyber-green transition-colors">
+                            <div class="text-cyber-green text-xl w-8 text-center"><i class="fas fa-phone-alt"></i></div>
+                            <div>
+                                <h4 class="text-xs text-gray-500">PHONE / WHATSAPP</h4>
+                                <a href="tel:+212698626603" class="text-white hover:text-cyber-green transition-colors">+212 698 626 603</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-4 bg-cyber-panel/50 p-4 rounded border border-cyber-border hover:border-blue-400 transition-colors">
+                            <div class="text-blue-400 text-xl w-8 text-center"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>
+                                <h4 class="text-xs text-gray-500">LOCATION</h4>
+                                <span class="text-white">Salé, Morocco (100% Relocation Ready)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form UI -->
+                <div class="bg-cyber-panel rounded-lg p-8 border border-cyber-border shadow-[0_0_30px_rgba(0,0,0,0.5)]">
+                    <div class="flex justify-between items-center mb-6 border-b border-cyber-border pb-4">
+                        <h3 class="text-xl font-bold text-white font-mono">secure_transmission.exe</h3>
+                        <i class="fas fa-lock text-cyber-green"></i>
+                    </div>
+                    
+                    <form id="contactForm" onsubmit="handleFormSubmit(event)" class="font-mono text-sm">
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-400 mb-1">>_ Name / Company</label>
+                            <input type="text" id="name" required class="w-full px-4 py-3 rounded bg-cyber-dark border border-cyber-border text-white focus:outline-none focus:border-cyber-cyan focus:shadow-neon-cyan transition-all" placeholder="Enter identifier">
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-400 mb-1">>_ Reply-To (Email)</label>
+                            <input type="email" id="email" required class="w-full px-4 py-3 rounded bg-cyber-dark border border-cyber-border text-white focus:outline-none focus:border-cyber-cyan focus:shadow-neon-cyan transition-all" placeholder="Enter protocol address">
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-400 mb-1">>_ Payload (Message)</label>
+                            <textarea id="message" rows="4" required class="w-full px-4 py-3 rounded bg-cyber-dark border border-cyber-border text-white focus:outline-none focus:border-cyber-cyan focus:shadow-neon-cyan transition-all resize-none" placeholder="Enter data packet..."></textarea>
+                        </div>
+                        
+                        <button type="submit" id="submitBtn" class="w-full py-3 rounded bg-cyber-cyan text-cyber-dark font-bold hover:bg-white transition-colors flex justify-center items-center gap-2 uppercase tracking-wider">
+                            <span>[ Transmit Data ]</span>
+                        </button>
+                        
+                        <div id="successMessage" class="hidden mt-4 p-3 bg-cyber-green/10 text-cyber-green rounded border border-cyber-green text-center text-xs">
+                            <i class="fas fa-check-square mr-1"></i> Packet delivered successfully. (Demo Mode)
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#05080c] text-gray-500 py-6 border-t border-cyber-border font-mono text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>
+                <p>> System compilation: © 2026 Younesse El Akkaoui. All rights reserved.</p>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="https://github.com/Y-elakkaoui" target="_blank" class="text-gray-500 hover:text-white transition-all text-lg">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Typing Effect logic
+        const texts = ["Aspiring IT Systems Integrator", "Cybersecurity Enthusiast", "Future SysAdmin", "Tech Problem Solver"];
+        let count = 0;
+        let index = 0;
+        let currentText = '';
+        let letter = '';
+        const typingElement = document.getElementById('typing-text');
+
+        function type() {
+            if (count === texts.length) {
+                count = 0;
+            }
+            currentText = texts[count];
+            letter = currentText.slice(0, ++index);
+            
+            typingElement.textContent = letter;
+            
+            if (letter.length === currentText.length) {
+                setTimeout(() => {
+                    index = 0;
+                    count++;
+                    type();
+                }, 2000); // Wait before starting next word
+            } else {
+                setTimeout(type, 100); // Typing speed
+            }
+        }
+        
+        // Start typing effect on load
+        window.addEventListener('load', type);
+
+        // Canvas Network Node Animation
+        const canvas = document.getElementById('network-canvas');
+        const ctx = canvas.getContext('2d');
+        let particlesArray;
+
+        // Set canvas size
+        function resizeCanvas() {
+            // Only cover the hero section
+            const heroSection = document.getElementById('home');
+            canvas.width = heroSection.offsetWidth;
+            canvas.height = heroSection.offsetHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        // Mouse position mapping
+        let mouse = {
+            x: null,
+            y: null,
+            radius: 150
+        }
+
+        window.addEventListener('mousemove', function(event) {
+            mouse.x = event.x;
+            // Adjust Y for scrolling
+            mouse.y = event.y + window.scrollY;
+        });
+
+        // Particle class
+        class Particle {
+            constructor(x, y, directionX, directionY, size, color) {
+                this.x = x;
+                this.y = y;
+                this.directionX = directionX;
+                this.directionY = directionY;
+                this.size = size;
+                this.color = color;
+            }
+            // Method to draw particle
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+            // Check particle position, mouse position, move particle, draw
+            update() {
+                // Check if particle is still within canvas
+                if (this.x > canvas.width || this.x < 0) {
+                    this.directionX = -this.directionX;
+                }
+                if (this.y > canvas.height || this.y < 0) {
+                    this.directionY = -this.directionY;
+                }
+
+                // Check collision detection - mouse position / particle position
+                let dx = mouse.x - this.x;
+                let dy = mouse.y - this.y;
+                let distance = Math.sqrt(dx*dx + dy*dy);
+                
+                // Add interaction: particles subtly push away from mouse
+                if (distance < mouse.radius + this.size) {
+                    if (mouse.x < this.x && this.x < canvas.width - this.size * 10) {
+                        this.x += 1;
+                    }
+                    if (mouse.x > this.x && this.x > this.size * 10) {
+                        this.x -= 1;
+                    }
+                    if (mouse.y < this.y && this.y < canvas.height - this.size * 10) {
+                        this.y += 1;
+                    }
+                    if (mouse.y > this.y && this.y > this.size * 10) {
+                        this.y -= 1;
+                    }
+                }
+                // Move particle
+                this.x += this.directionX;
+                this.y += this.directionY;
+                this.draw();
+            }
+        }
+
+        // Create particle array
+        function initCanvas() {
+            particlesArray = [];
+            let numberOfParticles = (canvas.height * canvas.width) / 9000;
+            // Limit particles for performance
+            if (numberOfParticles > 100) numberOfParticles = 100;
+            
+            for (let i = 0; i < numberOfParticles; i++) {
+                let size = (Math.random() * 2) + 1;
+                let x = (Math.random() * ((canvas.width - size * 2) - (size * 2)) + size * 2);
+                let y = (Math.random() * ((canvas.height - size * 2) - (size * 2)) + size * 2);
+                let directionX = (Math.random() * 1) - 0.5;
+                let directionY = (Math.random() * 1) - 0.5;
+                let color = 'rgba(6, 182, 212, 0.6)'; // Cyber cyan color
+
+                particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
+            }
+        }
+
+        // Connect nodes with lines if close enough
+        function connectNodes() {
+            let opacityValue = 1;
+            for (let a = 0; a < particlesArray.length; a++) {
+                for (let b = a; b < particlesArray.length; b++) {
+                    let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x))
+                                 + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
+                    
+                    if (distance < (canvas.width/7) * (canvas.height/7)) {
+                        opacityValue = 1 - (distance/20000);
+                        ctx.strokeStyle = 'rgba(6, 182, 212,' + opacityValue + ')';
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                        ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        // Animation Loop
+        function animate() {
+            requestAnimationFrame(animate);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+            }
+            connectNodes();
+        }
+
+        // Start Canvas
+        window.addEventListener('load', function() {
+            initCanvas();
+            animate();
+        });
+
+
+        // Mobile Menu Logic
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const icon = btn.querySelector('i');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            menu.classList.toggle('hidden');
+            if (menu.classList.contains('hidden')) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        }
+
+        btn.addEventListener('click', toggleMenu);
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if(!menu.classList.contains('hidden')) {
+                    toggleMenu();
+                }
+            });
+        });
+
+        // Contact Form Simulation
+        function handleFormSubmit(event) {
+            event.preventDefault(); 
+            const btn = document.getElementById('submitBtn');
+            const successMsg = document.getElementById('successMessage');
+            const form = document.getElementById('contactForm');
+            
+            const originalBtnHtml = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> EXECUTING...';
+            btn.disabled = true;
+            btn.classList.add('opacity-50');
+
+            setTimeout(() => {
+                btn.innerHTML = originalBtnHtml;
+                btn.disabled = false;
+                btn.classList.remove('opacity-50');
+                successMsg.classList.remove('hidden');
+                form.reset();
+                setTimeout(() => {
+                    successMsg.classList.add('hidden');
+                }, 5000);
+            }, 1500);
+        }
+    </script>
+</body>
+</html>
