@@ -299,194 +299,384 @@
         </div>
     </section>
 
-    <section id="dossier" class="py-20 relative bg-cyber-dark/80 border-t border-cyber-border z-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <span class="text-cyber-cyan font-mono text-sm tracking-wider uppercase mb-2 block">/root/application_files/</span>
-                <h2 class="text-3xl font-bold text-white">Ausbildung Dossier</h2>
-                <p class="text-gray-400 mt-4 font-mono text-sm">Access secure application documents for the Fachinformatiker für Systemintegration apprenticeship.</p>
+    <!-- Profile Section -->
+    <section id="profile" class="py-20 relative bg-cyber-dark z-10 border-t border-cyber-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12">
+                <span class="text-cyber-cyan font-mono text-sm tracking-wider uppercase mb-2 block">/sys/user/profile</span>
+                <h2 class="text-3xl font-bold text-white">System Profile</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-gray-400 leading-relaxed font-sans text-lg">
+                <div>
+                    <p class="mb-6">
+                        I am a highly motivated IT enthusiast from Morocco with a deep passion for networking, IT security, and systems architecture. My goal is to begin a dual vocational training (<span class="text-white font-medium italic">Ausbildung</span>) as a <strong>Fachinformatiker für Systemintegration</strong> in Germany.
+                    </p>
+                    <p>
+                        I bring a solid theoretical and practical foundation through my ongoing certifications, my state degree in Cybersecurity, and hands-on IT Support experience. I thrive on solving complex technical puzzles, organizing infrastructure, and helping end-users seamlessly integrate technology into their workflows.
+                    </p>
+                </div>
+                <div class="bg-cyber-panel p-6 rounded border border-cyber-border shadow-md">
+                    <h3 class="text-white font-mono font-bold mb-4 flex items-center gap-2"><i class="fas fa-fingerprint text-cyber-green"></i> Core Traits</h3>
+                    <ul class="space-y-3 font-mono text-sm">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check text-cyber-cyan mt-1"></i>
+                            <span><strong>Analytical Problem-Solver:</strong> I enjoy tracking down errors in systems and systematically finding solutions.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check text-cyber-cyan mt-1"></i>
+                            <span><strong>Service-Oriented:</strong> Experience in Helpdesk has taught me patience and clear communication with users.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check text-cyber-cyan mt-1"></i>
+                            <span><strong>Continuous Learner:</strong> Currently advancing my German (B1 to B2) and completing Google Cybersecurity modules.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check text-cyber-cyan mt-1"></i>
+                            <span><strong>Team Player:</strong> Reliable and adaptable, ready to integrate into a German IT department.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise / Skills Section -->
+    <section id="expertise" class="py-20 relative bg-cyber-panel z-10 border-t border-cyber-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12 text-center">
+                <span class="text-cyber-cyan font-mono text-sm tracking-wider uppercase mb-2 block">/sys/modules/skills</span>
+                <h2 class="text-3xl font-bold text-white">Technical Foundation</h2>
+                <p class="text-gray-400 mt-4 max-w-2xl mx-auto">Existing knowledge base ready to be expanded during the apprenticeship.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-                <!-- CV Document -->
-                <div class="bg-cyber-panel p-6 rounded border border-cyber-border hover:border-cyber-cyan hover:shadow-neon-cyan transition-all group flex flex-col items-center text-center">
-                    <div class="w-16 h-16 rounded-full bg-cyber-dark border border-cyber-cyan/50 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <i class="fas fa-file-pdf text-2xl text-cyber-cyan"></i>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Skill Module 1 -->
+                <div class="bg-cyber-dark p-6 rounded border border-cyber-border hover:border-cyber-cyan transition-colors group">
+                    <i class="fas fa-network-wired text-3xl text-cyber-cyan mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xl font-bold text-white mb-3">Networking & OS</h3>
+                    <ul class="text-gray-400 space-y-2 text-sm font-mono">
+                        <li>> TCP/IP, DHCP, WLAN Configuration</li>
+                        <li>> Windows & Linux Fundamentals</li>
+                        <li>> Virtualization (VMware, VirtualBox)</li>
+                        <li>> Basic Network Topologies</li>
+                    </ul>
+                </div>
+
+                <!-- Skill Module 2 -->
+                <div class="bg-cyber-dark p-6 rounded border border-cyber-border hover:border-cyber-green transition-colors group">
+                    <i class="fas fa-shield-alt text-3xl text-cyber-green mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xl font-bold text-white mb-3">IT Security</h3>
+                    <ul class="text-gray-400 space-y-2 text-sm font-mono">
+                        <li>> VPN & Firewall Concepts</li>
+                        <li>> IDS/IPS implementation basics</li>
+                        <li>> Network Monitoring (SNMP)</li>
+                        <li>> Threat Analysis & Mitigation</li>
+                    </ul>
+                </div>
+
+                <!-- Skill Module 3 -->
+                <div class="bg-cyber-dark p-6 rounded border border-cyber-border hover:border-blue-500 transition-colors group">
+                    <i class="fas fa-tools text-3xl text-blue-500 mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xl font-bold text-white mb-3">Support & Scripting</h3>
+                    <ul class="text-gray-400 space-y-2 text-sm font-mono">
+                        <li>> 1st-Level IT Helpdesk Support</li>
+                        <li>> Troubleshooting & Diagnostics</li>
+                        <li>> Python (Basic Scripting/Automation)</li>
+                        <li>> Hardware Setup & Maintenance</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Language Bar -->
+            <div class="mt-12 bg-cyber-dark p-6 rounded border border-cyber-border">
+                <h3 class="text-white font-mono font-bold mb-4 flex items-center gap-2"><i class="fas fa-language text-cyber-cyan"></i> Language Processing</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div>
+                        <div class="flex justify-between text-xs text-gray-400 mb-1 font-mono"><span>German (B1/B2 prep)</span><span>70%</span></div>
+                        <div class="w-full bg-cyber-panel h-2 rounded overflow-hidden">
+                            <div class="bg-cyber-cyan h-full w-[70%]"></div>
+                        </div>
                     </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Curriculum Vitae</h3>
-                    <p class="text-xs text-gray-500 font-mono mb-6">Lebenslauf.pdf (DE)</p>
-                    <a href="Lebenslauf.pdf" target="_blank" class="mt-auto px-6 py-2 w-full rounded bg-cyber-dark border border-cyber-cyan text-cyber-cyan font-mono text-sm hover:bg-cyber-cyan hover:text-cyber-dark transition-colors flex items-center justify-center gap-2">
-                        <i class="fas fa-download"></i> DOWNLOAD
+                    <div>
+                        <div class="flex justify-between text-xs text-gray-400 mb-1 font-mono"><span>English (Fluent)</span><span>95%</span></div>
+                        <div class="w-full bg-cyber-panel h-2 rounded overflow-hidden">
+                            <div class="bg-blue-500 h-full w-[95%]"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-xs text-gray-400 mb-1 font-mono"><span>French (Good)</span><span>75%</span></div>
+                        <div class="w-full bg-cyber-panel h-2 rounded overflow-hidden">
+                            <div class="bg-cyber-green h-full w-[75%]"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-xs text-gray-400 mb-1 font-mono"><span>Arabic (Native)</span><span>100%</span></div>
+                        <div class="w-full bg-cyber-panel h-2 rounded overflow-hidden">
+                            <div class="bg-gray-400 h-full w-full"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience / Timeline Section -->
+    <section id="experience" class="py-20 relative bg-cyber-dark z-10 border-t border-cyber-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-16">
+                <span class="text-cyber-cyan font-mono text-sm tracking-wider uppercase mb-2 block">/var/log/syslog</span>
+                <h2 class="text-3xl font-bold text-white">Experience & Training Log</h2>
+            </div>
+
+            <div class="relative timeline-line">
+                <!-- Timeline Item 1 -->
+                <div class="relative pl-12 md:pl-0 mb-12 flex flex-col md:flex-row md:justify-between items-start md:items-center group">
+                    <div class="hidden md:block w-5/12 text-right pr-8">
+                        <h3 class="text-xl font-bold text-white">Technical Support Agent</h3>
+                        <p class="text-cyber-cyan font-mono text-sm">DXC Technology</p>
+                        <p class="text-gray-500 text-xs font-mono mt-1">Mar 2026 - Present</p>
+                    </div>
+                    <div class="absolute left-[1.5rem] md:left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-cyber-dark border-2 border-cyber-cyan z-10 group-hover:bg-cyber-cyan transition-colors shadow-neon-cyan"></div>
+                    <div class="md:w-5/12 md:pl-8">
+                        <div class="md:hidden mb-2">
+                            <h3 class="text-xl font-bold text-white">Technical Support Agent</h3>
+                            <p class="text-cyber-cyan font-mono text-sm">DXC Technology | Mar 2026 - Present</p>
+                        </div>
+                        <div class="bg-cyber-panel p-5 rounded border border-cyber-border text-gray-400 text-sm">
+                            <ul class="list-disc pl-4 space-y-1">
+                                <li>Providing 1st-Level-Support to troubleshoot technical malfunctions.</li>
+                                <li>Handling customer inquiries in German via phone, email, and ticketing systems.</li>
+                                <li>Analyzing IT problems, identifying root causes, and initiating appropriate solutions.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="relative pl-12 md:pl-0 mb-12 flex flex-col md:flex-row-reverse md:justify-between items-start md:items-center group">
+                    <div class="hidden md:block w-5/12 text-left pl-8">
+                        <h3 class="text-xl font-bold text-white">IT Security Intern</h3>
+                        <p class="text-cyber-green font-mono text-sm">ASTRA EQUIPEMENT</p>
+                        <p class="text-gray-500 text-xs font-mono mt-1">Mar 2024 - Apr 2024</p>
+                    </div>
+                    <div class="absolute left-[1.5rem] md:left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-cyber-dark border-2 border-cyber-green z-10 group-hover:bg-cyber-green transition-colors shadow-neon-green"></div>
+                    <div class="md:w-5/12 md:pr-8">
+                        <div class="md:hidden mb-2">
+                            <h3 class="text-xl font-bold text-white">IT Security Intern</h3>
+                            <p class="text-cyber-green font-mono text-sm">ASTRA EQUIPEMENT | Mar 2024 - Apr 2024</p>
+                        </div>
+                        <div class="bg-cyber-panel p-5 rounded border border-cyber-border text-gray-400 text-sm">
+                            <ul class="list-disc pl-4 space-y-1">
+                                <li>Conducted security analysis to identify system vulnerabilities.</li>
+                                <li>Assisted in the implementation of security solutions (VPN, Firewall, IDS/IPS).</li>
+                                <li>Monitored network infrastructure using SNMP to detect anomalies.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3 (Education) -->
+                <div class="relative pl-12 md:pl-0 flex flex-col md:flex-row md:justify-between items-start md:items-center group">
+                    <div class="hidden md:block w-5/12 text-right pr-8">
+                        <h3 class="text-xl font-bold text-white">Academic Training</h3>
+                        <p class="text-blue-500 font-mono text-sm">Cybersecurity & General IT</p>
+                    </div>
+                    <div class="absolute left-[1.5rem] md:left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-cyber-dark border-2 border-blue-500 z-10 group-hover:bg-blue-500 transition-colors shadow-[0_0_15px_rgba(59,130,246,0.5)]"></div>
+                    <div class="md:w-5/12 md:pl-8">
+                        <div class="md:hidden mb-2">
+                            <h3 class="text-xl font-bold text-white">Academic Training</h3>
+                            <p class="text-blue-500 font-mono text-sm">Cybersecurity & General IT</p>
+                        </div>
+                        <div class="bg-cyber-panel p-5 rounded border border-cyber-border text-gray-400 text-sm space-y-4">
+                            <div>
+                                <p class="text-white font-bold">Cybersecurity Further Education</p>
+                                <p class="text-xs font-mono text-blue-400">ENSIT, Rabat | Sep 2025 - Jan 2026</p>
+                                <p class="mt-1">Focus on network protection and modern security concepts. Successfully completed.</p>
+                            </div>
+                            <div class="border-t border-cyber-border pt-3">
+                                <p class="text-white font-bold">State Certified Technician for Cybersecurity</p>
+                                <p class="text-xs font-mono text-blue-400">OFPPT, Salé | Sep 2023 - Jun 2025</p>
+                            </div>
+                            <div class="border-t border-cyber-border pt-3">
+                                <p class="text-white font-bold">General Higher Education Entrance Qualification (Abitur)</p>
+                                <p class="text-xs font-mono text-blue-400">Lycée Jaber Ibn Hayan, Salé | Sep 2019 - Jun 2022</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="dossier" class="py-20 relative bg-cyber-panel/50 border-t border-cyber-border z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12 text-center">
+                <span class="text-cyber-cyan font-mono text-sm tracking-wider uppercase mb-2 block">/sys/docs/archive</span>
+                <h2 class="text-3xl font-bold text-white">Secure Dossier</h2>
+                <p class="text-gray-400 mt-4 max-w-2xl mx-auto">Download official application documents here.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Curriculum Vitae Document -->
+                <div class="bg-cyber-dark p-6 rounded border border-cyber-border hover:border-cyber-cyan transition-colors flex flex-col items-center text-center group">
+                    <div class="h-16 w-16 bg-cyber-panel rounded flex items-center justify-center mb-4 group-hover:bg-cyber-cyan/10 transition-colors">
+                        <i class="fas fa-file-pdf text-3xl text-cyber-cyan"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Curriculum Vitae</h3>
+                    <p class="text-gray-400 text-sm mb-6">Lebenslauf (German)</p>
+                    <a href="Lebenslauf.pdf" target="_blank" class="w-full py-2 rounded border border-cyber-cyan text-cyber-cyan font-mono text-sm hover:bg-cyber-cyan hover:text-cyber-dark transition-all shadow-neon-cyan block">
+                        <i class="fas fa-download mr-2"></i> DOWNLOAD.PDF
                     </a>
                 </div>
 
                 <!-- Certificates Document -->
-                <div class="bg-cyber-panel p-6 rounded border border-cyber-border hover:border-blue-500 hover:shadow-[0_0_15px_rgba(59,130,246,0.5)] transition-all group flex flex-col items-center text-center">
-                    <div class="w-16 h-16 rounded-full bg-cyber-dark border border-blue-500/50 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <i class="fas fa-certificate text-2xl text-blue-500"></i>
+                <div class="bg-cyber-dark p-6 rounded border border-cyber-border hover:border-cyber-green transition-colors flex flex-col items-center text-center group">
+                    <div class="h-16 w-16 bg-cyber-panel rounded flex items-center justify-center mb-4 group-hover:bg-cyber-green/10 transition-colors">
+                        <i class="fas fa-certificate text-3xl text-cyber-green"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Certificates</h3>
-                    <p class="text-xs text-gray-500 font-mono mb-6">Zeugnisse.pdf</p>
-                    <a href="Zeugnisse.pdf" target="_blank" class="mt-auto px-6 py-2 w-full rounded bg-cyber-dark border border-blue-500 text-blue-500 font-mono text-sm hover:bg-blue-500 hover:text-white transition-colors flex items-center justify-center gap-2">
-                        <i class="fas fa-download"></i> DOWNLOAD
+                    <h3 class="text-xl font-bold text-white mb-2">Certificates</h3>
+                    <p class="text-gray-400 text-sm mb-6">Zeugnisse & Zertifikate</p>
+                    <a href="Zeugnisse.pdf" target="_blank" class="w-full py-2 rounded border border-cyber-green text-cyber-green font-mono text-sm hover:bg-cyber-green hover:text-cyber-dark transition-all shadow-neon-green block">
+                        <i class="fas fa-download mr-2"></i> DOWNLOAD.PDF
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-24 bg-cyber-dark relative overflow-hidden border-t border-cyber-border">
-        <!-- Background Ambient Glows -->
-        <div class="absolute top-0 right-0 w-96 h-96 rounded-full bg-cyber-cyan opacity-5 blur-[100px] pointer-events-none"></div>
-        <div class="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-cyber-green opacity-5 blur-[100px] pointer-events-none"></div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+    <section id="contact" class="py-20 relative z-10 border-t border-cyber-border bg-cyber-dark">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12 text-center">
+                <span class="text-cyber-cyan font-mono text-sm tracking-wider uppercase mb-2 block">/sys/network/ping</span>
+                <h2 class="text-3xl font-bold text-white">Initiate Contact</h2>
+            </div>
+            
+            <div class="bg-cyber-panel p-8 rounded border border-cyber-border shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyber-cyan to-cyber-green"></div>
                 
-                <!-- Contact Info -->
-                <div>
-                    <span class="text-cyber-cyan font-mono text-sm tracking-wider uppercase mb-2 block">ping_request</span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Establish Connection</h2>
-                    <p class="text-gray-400 text-lg mb-10 max-w-md font-mono text-sm">
-                        > Looking for a motivated IT apprentice for your company? I look forward to your message and a potential interview via Teams/Zoom.
-                    </p>
-
-                    <div class="space-y-4 font-mono">
-                        <div class="flex items-center gap-4 bg-cyber-panel/50 p-4 rounded border border-cyber-border hover:border-cyber-cyan transition-colors">
-                            <div class="text-cyber-cyan text-xl w-8 text-center"><i class="fas fa-envelope"></i></div>
-                            <div>
-                                <h4 class="text-xs text-gray-500">EMAIL</h4>
-                                <a href="mailto:younesselakkaouics@gmail.com" class="text-white hover:text-cyber-cyan transition-colors break-all">younesselakkaouics@gmail.com</a>
-                            </div>
+                <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-gray-400 font-mono text-sm mb-2" for="name">Name</label>
+                            <input type="text" id="name" required class="w-full bg-cyber-dark border border-cyber-border rounded px-4 py-2 text-white focus:outline-none focus:border-cyber-cyan transition-colors" placeholder="John Doe">
                         </div>
-                        
-                        <div class="flex items-center gap-4 bg-cyber-panel/50 p-4 rounded border border-cyber-border hover:border-cyber-green transition-colors">
-                            <div class="text-cyber-green text-xl w-8 text-center"><i class="fas fa-phone-alt"></i></div>
-                            <div>
-                                <h4 class="text-xs text-gray-500">PHONE / WHATSAPP</h4>
-                                <a href="tel:+212698626603" class="text-white hover:text-cyber-green transition-colors">+212 698 626 603</a>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-center gap-4 bg-cyber-panel/50 p-4 rounded border border-cyber-border hover:border-blue-400 transition-colors">
-                            <div class="text-blue-400 text-xl w-8 text-center"><i class="fas fa-map-marker-alt"></i></div>
-                            <div>
-                                <h4 class="text-xs text-gray-500">LOCATION</h4>
-                                <span class="text-white">Salé, Morocco (100% Relocation Ready)</span>
-                            </div>
+                        <div>
+                            <label class="block text-gray-400 font-mono text-sm mb-2" for="email">Email</label>
+                            <input type="email" id="email" required class="w-full bg-cyber-dark border border-cyber-border rounded px-4 py-2 text-white focus:outline-none focus:border-cyber-cyan transition-colors" placeholder="john@company.de">
                         </div>
                     </div>
-                </div>
-
-                <!-- Contact Form UI -->
-                <div class="bg-cyber-panel rounded-lg p-8 border border-cyber-border shadow-[0_0_30px_rgba(0,0,0,0.5)]">
-                    <div class="flex justify-between items-center mb-6 border-b border-cyber-border pb-4">
-                        <h3 class="text-xl font-bold text-white font-mono">secure_transmission.exe</h3>
-                        <i class="fas fa-lock text-cyber-green"></i>
+                    <div>
+                        <label class="block text-gray-400 font-mono text-sm mb-2" for="subject">Subject</label>
+                        <input type="text" id="subject" required class="w-full bg-cyber-dark border border-cyber-border rounded px-4 py-2 text-white focus:outline-none focus:border-cyber-cyan transition-colors" placeholder="Einladung zum Vorstellungsgespräch">
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 font-mono text-sm mb-2" for="message">Message</label>
+                        <textarea id="message" rows="4" required class="w-full bg-cyber-dark border border-cyber-border rounded px-4 py-2 text-white focus:outline-none focus:border-cyber-cyan transition-colors resize-none" placeholder="Enter message payload..."></textarea>
                     </div>
                     
-                    <form id="contactForm" onsubmit="handleFormSubmit(event)" class="font-mono text-sm">
-                        <div class="mb-4">
-                            <label for="name" class="block text-gray-400 mb-1">>_ Name / Company</label>
-                            <input type="text" id="name" required class="w-full px-4 py-3 rounded bg-cyber-dark border border-cyber-border text-white focus:outline-none focus:border-cyber-cyan focus:shadow-neon-cyan transition-all" placeholder="Enter identifier">
-                        </div>
-                        <div class="mb-4">
-                            <label for="email" class="block text-gray-400 mb-1">>_ Reply-To (Email)</label>
-                            <input type="email" id="email" required class="w-full px-4 py-3 rounded bg-cyber-dark border border-cyber-border text-white focus:outline-none focus:border-cyber-cyan focus:shadow-neon-cyan transition-all" placeholder="Enter protocol address">
-                        </div>
-                        <div class="mb-6">
-                            <label for="message" class="block text-gray-400 mb-1">>_ Payload (Message)</label>
-                            <textarea id="message" rows="4" required class="w-full px-4 py-3 rounded bg-cyber-dark border border-cyber-border text-white focus:outline-none focus:border-cyber-cyan focus:shadow-neon-cyan transition-all resize-none" placeholder="Enter data packet..."></textarea>
-                        </div>
-                        
-                        <button type="submit" id="submitBtn" class="w-full py-3 rounded bg-cyber-cyan text-cyber-dark font-bold hover:bg-white transition-colors flex justify-center items-center gap-2 uppercase tracking-wider">
-                            <span>[ Transmit Data ]</span>
-                        </button>
-                        
-                        <div id="successMessage" class="hidden mt-4 p-3 bg-cyber-green/10 text-cyber-green rounded border border-cyber-green text-center text-xs">
-                            <i class="fas fa-check-square mr-1"></i> Packet delivered successfully. (Demo Mode)
-                        </div>
-                    </form>
-                </div>
-
+                    <button type="submit" id="submitBtn" class="w-full py-3 rounded bg-cyber-cyan text-cyber-dark font-bold font-mono hover:bg-cyan-300 transition-all shadow-neon-cyan flex items-center justify-center gap-2">
+                        <i class="fas fa-paper-plane"></i> TRANSMIT_DATA
+                    </button>
+                    
+                    <div id="successMessage" class="hidden mt-4 p-3 bg-cyber-green/20 border border-cyber-green text-cyber-green rounded font-mono text-center text-sm">
+                        > Transmission successful. I will respond shortly.
+                    </div>
+                </form>
             </div>
         </div>
     </section>
 
-    <footer class="bg-[#05080c] text-gray-500 py-6 border-t border-cyber-border font-mono text-xs">
+    <footer class="bg-cyber-dark py-8 border-t border-cyber-border z-10 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <div>
-                <p>> System compilation: © 2026 Younesse El Akkaoui. All rights reserved.</p>
+            <div class="text-gray-500 font-mono text-sm">
+                &copy; 2026 Younesse El Akkaoui. All rights reserved.
             </div>
-            <div class="flex items-center gap-4">
-                <a href="https://github.com/Y-elakkaoui" target="_blank" class="text-gray-500 hover:text-white transition-all text-lg">
-                    <i class="fab fa-github"></i>
+            <div class="flex space-x-6">
+                <a href="https://github.com/Y-elakkaoui" target="_blank" class="text-gray-500 hover:text-white transition-colors">
+                    <i class="fab fa-github text-xl"></i>
+                </a>
+                <a href="mailto:younesselakkaouics@gmail.com" class="text-gray-500 hover:text-white transition-colors">
+                    <i class="fas fa-envelope text-xl"></i>
                 </a>
             </div>
         </div>
     </footer>
 
     <script>
-        // Typing Effect logic
-        const texts = ["Aspiring IT Systems Integrator", "Cybersecurity Enthusiast", "Future SysAdmin", "Tech Problem Solver"];
-        let count = 0;
-        let index = 0;
-        let currentText = '';
-        let letter = '';
-        const typingElement = document.getElementById('typing-text');
+        // Typing Animation Logic
+        const typingText = document.getElementById('typing-text');
+        const words = ['Aspiring IT Systems Integrator', 'Future SysAdmin', 'Cybersecurity Enthusiast'];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
 
         function type() {
-            if (count === texts.length) {
-                count = 0;
-            }
-            currentText = texts[count];
-            letter = currentText.slice(0, ++index);
+            const currentWord = words[wordIndex];
             
-            typingElement.textContent = letter;
-            
-            if (letter.length === currentText.length) {
-                setTimeout(() => {
-                    index = 0;
-                    count++;
-                    type();
-                }, 2000); // Wait before starting next word
+            if (isDeleting) {
+                typingText.textContent = '> ' + currentWord.substring(0, charIndex - 1);
+                charIndex--;
             } else {
-                setTimeout(type, 100); // Typing speed
+                typingText.textContent = '> ' + currentWord.substring(0, charIndex + 1);
+                charIndex++;
             }
+
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIndex === currentWord.length) {
+                typeSpeed = 2000; // Pause at end of word
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+                typeSpeed = 500; // Pause before next word
+            }
+
+            setTimeout(type, typeSpeed);
         }
         
-        // Start typing effect on load
-        window.addEventListener('load', type);
+        // Start typing animation
+        setTimeout(type, 1000);
 
-        // Canvas Network Node Animation
+        // Network Canvas Animation
         const canvas = document.getElementById('network-canvas');
         const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
         let particlesArray;
 
-        // Set canvas size
-        function resizeCanvas() {
-            // Only cover the hero section
-            const heroSection = document.getElementById('home');
-            canvas.width = heroSection.offsetWidth;
-            canvas.height = heroSection.offsetHeight;
-        }
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
-
-        // Mouse position mapping
+        // get mouse position
         let mouse = {
             x: null,
             y: null,
-            radius: 150
+            radius: (canvas.height/80) * (canvas.width/80)
         }
 
-        window.addEventListener('mousemove', function(event) {
-            mouse.x = event.x;
-            // Adjust Y for scrolling
-            mouse.y = event.y + window.scrollY;
-        });
+        window.addEventListener('mousemove',
+            function(event) {
+                mouse.x = event.x;
+                mouse.y = event.y;
+            }
+        );
+        window.addEventListener('mouseout',
+            function() {
+                mouse.x = undefined;
+                mouse.y = undefined;
+            }
+        );
+        window.addEventListener('resize',
+            function() {
+                canvas.width = innerWidth;
+                canvas.height = innerHeight;
+                mouse.radius = ((canvas.height/80) * (canvas.height/80));
+                initCanvas();
+            }
+        );
 
-        // Particle class
+        // Create particle
         class Particle {
             constructor(x, y, directionX, directionY, size, color) {
                 this.x = x;
@@ -496,16 +686,13 @@
                 this.size = size;
                 this.color = color;
             }
-            // Method to draw particle
             draw() {
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-                ctx.fillStyle = this.color;
+                ctx.fillStyle = '#06b6d4';
                 ctx.fill();
             }
-            // Check particle position, mouse position, move particle, draw
             update() {
-                // Check if particle is still within canvas
                 if (this.x > canvas.width || this.x < 0) {
                     this.directionX = -this.directionX;
                 }
@@ -518,7 +705,6 @@
                 let dy = mouse.y - this.y;
                 let distance = Math.sqrt(dx*dx + dy*dy);
                 
-                // Add interaction: particles subtly push away from mouse
                 if (distance < mouse.radius + this.size) {
                     if (mouse.x < this.x && this.x < canvas.width - this.size * 10) {
                         this.x += 1;
@@ -533,7 +719,6 @@
                         this.y -= 1;
                     }
                 }
-                // Move particle
                 this.x += this.directionX;
                 this.y += this.directionY;
                 this.draw();
@@ -544,7 +729,6 @@
         function initCanvas() {
             particlesArray = [];
             let numberOfParticles = (canvas.height * canvas.width) / 9000;
-            // Limit particles for performance
             if (numberOfParticles > 100) numberOfParticles = 100;
             
             for (let i = 0; i < numberOfParticles; i++) {
@@ -553,13 +737,12 @@
                 let y = (Math.random() * ((canvas.height - size * 2) - (size * 2)) + size * 2);
                 let directionX = (Math.random() * 1) - 0.5;
                 let directionY = (Math.random() * 1) - 0.5;
-                let color = 'rgba(6, 182, 212, 0.6)'; // Cyber cyan color
+                let color = 'rgba(6, 182, 212, 0.6)';
 
                 particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
             }
         }
 
-        // Connect nodes with lines if close enough
         function connectNodes() {
             let opacityValue = 1;
             for (let a = 0; a < particlesArray.length; a++) {
@@ -580,7 +763,6 @@
             }
         }
 
-        // Animation Loop
         function animate() {
             requestAnimationFrame(animate);
             ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -591,12 +773,10 @@
             connectNodes();
         }
 
-        // Start Canvas
         window.addEventListener('load', function() {
             initCanvas();
             animate();
         });
-
 
         // Mobile Menu Logic
         const btn = document.getElementById('mobile-menu-btn');
