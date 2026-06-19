@@ -16,6 +16,3 @@ This repository hosts my professional portfolio, created to support my applicati
 
 ## 🔒 Privacy Note
 To protect sensitive personal data, my official application documents (*Lebenslauf*, *Zeugnisse*) are not hosted publicly in this repository. They are available securely upon request via the contact form on the live website.
-```eof
-
-Adding this will make your GitHub repository look incredibly polished and complete!
