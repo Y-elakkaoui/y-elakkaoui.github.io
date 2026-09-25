@@ -1,168 +1,877 @@
 <!DOCTYPE html>
-<html lang="de" class="scroll-smooth">
+<html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Younesse El Akkaoui | IT & Cybersecurity</title>
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            dark: '#0f172a',    // Slate 900
-                            panel: '#1e293b',   // Slate 800
-                            accent: '#38bdf8',  // Light Blue
-                            success: '#10b981'  // Emerald
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    
-    <!-- Google Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-    </style>
-</head>
-<body class="bg-brand-dark text-slate-300 antialiased selection:bg-brand-accent selection:text-white">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-brand-dark/90 backdrop-blur-md border-b border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <a href="#home" class="text-xl font-bold text-white tracking-tight">
-                    Younesse<span class="text-brand-accent">.IT</span>
-                </a>
-                <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#profile" class="text-sm font-medium hover:text-brand-accent transition-colors">Profil</a>
-                    <a href="#expertise" class="text-sm font-medium hover:text-brand-accent transition-colors">Kenntnisse</a>
-                    <a href="#experience" class="text-sm font-medium hover:text-brand-accent transition-colors">Erfahrung</a>
-                    <a href="#contact" class="px-4 py-2 rounded bg-brand-accent/10 text-brand-accent border border-brand-accent/20 hover:bg-brand-accent hover:text-brand-dark transition-all">
-                        Kontakt
-                    </a>
-                </div>
-            </div>
-        </div>
+  <title>Younesse El Akkaoui | Fachinformatiker für Systemintegration</title>
+
+  <meta
+    name="description"
+    content="Portfolio von Younesse El Akkaoui – IT-Support, Netzwerktechnik, Cybersicherheit und Systemintegration."
+  >
+
+  <meta name="author" content="Younesse El Akkaoui">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Background Effects -->
+  <div class="background-grid"></div>
+  <div class="background-glow glow-one"></div>
+  <div class="background-glow glow-two"></div>
+
+  <!-- =========================
+       NAVIGATION
+  ========================== -->
+  <header class="header">
+
+    <nav class="navbar container">
+
+      <a href="#home" class="logo">
+        <span>&lt;</span>YEA<span>/&gt;</span>
+      </a>
+
+      <button
+        class="mobile-menu-btn"
+        id="mobileMenuBtn"
+        aria-label="Menü öffnen"
+      >
+        ☰
+      </button>
+
+      <div class="nav-links" id="navLinks">
+
+        <a href="#about" data-de="Über mich" data-en="About">
+          Über mich
+        </a>
+
+        <a href="#experience" data-de="Erfahrung" data-en="Experience">
+          Erfahrung
+        </a>
+
+        <a href="#skills" data-de="Skills" data-en="Skills">
+          Skills
+        </a>
+
+        <a href="#education" data-de="Ausbildung" data-en="Education">
+          Ausbildung
+        </a>
+
+        <a href="#projects" data-de="Projekte" data-en="Projects">
+          Projekte
+        </a>
+
+        <a href="#contact" data-de="Kontakt" data-en="Contact">
+          Kontakt
+        </a>
+
+      </div>
+
+      <div class="language-switcher">
+        <button class="lang-btn active" data-lang="de">DE</button>
+        <span>/</span>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="pt-32 pb-20 px-4 min-h-[80vh] flex items-center relative overflow-hidden">
-        <div class="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20"></div>
-        <div class="max-w-7xl mx-auto relative z-10 w-full">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-success/10 text-brand-success border border-brand-success/20 text-sm mb-6 font-medium">
-                <span class="relative flex h-2 w-2">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-success opacity-75"></span>
-                  <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-success"></span>
+  </header>
+
+
+  <main>
+
+    <!-- =========================
+         HERO
+    ========================== -->
+    <section class="hero section" id="home">
+
+      <div class="container hero-grid">
+
+        <div class="hero-content">
+
+          <div
+            class="availability"
+            data-de="● Verfügbar für eine Ausbildung"
+            data-en="● Available for vocational training"
+          >
+            ● Verfügbar für eine Ausbildung
+          </div>
+
+          <p class="terminal-line">
+            <span class="terminal-symbol">$</span>
+            <span id="typingText">whoami</span>
+          </p>
+
+          <h1>
+            Younesse
+            <span>El Akkaoui</span>
+          </h1>
+
+          <h2
+            data-de="Fachinformatiker für Systemintegration"
+            data-en="IT Specialist for System Integration"
+          >
+            Fachinformatiker für Systemintegration
+          </h2>
+
+          <p
+            class="hero-description"
+            data-de="Technikbegeisterter Berufseinsteiger mit Ausbildung im Bereich Cybersicherheit und praktischer Erfahrung in IT-Support, Netzwerktechnik und Systemanalyse."
+            data-en="Technology-focused IT professional with cybersecurity education and practical experience in IT support, networking and system analysis."
+          >
+            Technikbegeisterter Berufseinsteiger mit Ausbildung im Bereich
+            Cybersicherheit und praktischer Erfahrung in IT-Support,
+            Netzwerktechnik und Systemanalyse.
+          </p>
+
+          <div class="hero-buttons">
+
+            <a
+              href="#contact"
+              class="btn btn-primary"
+              data-de="Kontakt aufnehmen"
+              data-en="Contact me"
+            >
+              Kontakt aufnehmen
+            </a>
+
+            <a
+              href="assets/Lebenslauf.Y.El.Akkaoui.pdf"
+              class="btn btn-secondary"
+              download
+              data-de="↓ Lebenslauf"
+              data-en="↓ Download CV"
+            >
+              ↓ Lebenslauf
+            </a>
+
+          </div>
+
+          <div class="hero-socials">
+
+            <a
+              href="https://github.com/Y-elakkaoui"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub ↗
+            </a>
+
+            <a href="mailto:younesselakkaouics@gmail.com">
+              E-Mail ↗
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- Profile / Terminal Card -->
+        <div class="hero-card">
+
+          <div class="terminal">
+
+            <div class="terminal-header">
+
+              <div class="terminal-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+
+              <span>younesse@portfolio:~</span>
+
+            </div>
+
+            <div class="terminal-body">
+
+              <p>
+                <span class="terminal-symbol">$</span>
+                cat profile.txt
+              </p>
+
+              <br>
+
+              <p>
+                <span class="terminal-key">name:</span>
+                Younesse El Akkaoui
+              </p>
+
+              <p>
+                <span class="terminal-key">focus:</span>
+                System Integration
+              </p>
+
+              <p>
+                <span class="terminal-key">security:</span>
+                Cybersecurity
+              </p>
+
+              <p>
+                <span class="terminal-key">support:</span>
+                IT Technical Support
+              </p>
+
+              <p>
+                <span class="terminal-key">network:</span>
+                IP / DHCP / WLAN
+              </p>
+
+              <p>
+                <span class="terminal-key">systems:</span>
+                Windows / Linux
+              </p>
+
+              <br>
+
+              <p>
+                <span class="terminal-symbol">$</span>
+                <span
+                  data-de="status --ausbildung"
+                  data-en="status --training"
+                >
+                  status --ausbildung
                 </span>
-                Suche Ausbildungsplatz: Fachinformatiker für Systemintegration
+              </p>
+
+              <p class="success">
+                ✓ AVAILABLE
+              </p>
+
+              <p>
+                <span class="terminal-symbol">$</span>
+                <span class="cursor">_</span>
+              </p>
+
             </div>
-            
-            <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-6">
-                Systemzugriff Gewährt.<br/>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-blue-500">Ich bin Younesse.</span>
-            </h1>
-            
-            <p class="text-slate-400 mb-8 max-w-2xl text-lg md:text-xl leading-relaxed">
-                Hochmotivierter IT-Enthusiast mit fundierten Kenntnissen in Cybersecurity und IT-Support. Bereit, meine Karriere in Deutschland zu starten.
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+    <section class="section" id="about">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <span>01.</span>
+
+          <h2
+            data-de="Über mich"
+            data-en="About me"
+          >
+            Über mich
+          </h2>
+
+        </div>
+
+        <div class="about-grid">
+
+          <div class="about-text">
+
+            <p
+              data-de="Ich bin ein engagierter und technikaffiner Berufseinsteiger mit fundierter Ausbildung im Bereich Cybersicherheit. Durch meine praktische Erfahrung im IT-Support für ein deutsches IT-Projekt sowie in Netzwerksicherheit und Systemanalyse konnte ich bereits wichtige Kenntnisse im professionellen IT-Umfeld sammeln."
+              data-en="I am a motivated technology-focused IT professional with a solid education in cybersecurity. Through practical experience in IT support for a German IT project as well as network security and system analysis, I have gained valuable experience in a professional IT environment."
+            >
+              Ich bin ein engagierter und technikaffiner Berufseinsteiger
+              mit fundierter Ausbildung im Bereich Cybersicherheit. Durch
+              meine praktische Erfahrung im IT-Support für ein deutsches
+              IT-Projekt sowie in Netzwerksicherheit und Systemanalyse
+              konnte ich bereits wichtige Kenntnisse im professionellen
+              IT-Umfeld sammeln.
             </p>
-            
-            <div class="flex flex-col sm:flex-row gap-4">
-                <a href="#contact" class="px-8 py-3 rounded bg-brand-accent text-brand-dark font-semibold hover:bg-blue-400 transition-all text-center flex items-center justify-center gap-2">
-                    <i class="fas fa-envelope"></i> Kontakt aufnehmen
-                </a>
-                <a href="https://github.com/Y-elakkaoui" target="_blank" class="px-8 py-3 rounded border border-slate-700 hover:border-slate-500 hover:text-white transition-all text-center flex items-center justify-center gap-2 bg-brand-panel/50">
-                    <i class="fab fa-github"></i> GitHub Profil
-                </a>
+
+            <p
+              data-de="Mein Ziel ist eine Ausbildung zum Fachinformatiker für Systemintegration, um meine technischen Kenntnisse in der Praxis weiterzuentwickeln und zu vertiefen."
+              data-en="My goal is vocational training as an IT Specialist for System Integration, where I can further develop and deepen my technical skills through practical experience."
+            >
+              Mein Ziel ist eine Ausbildung zum Fachinformatiker für
+              Systemintegration, um meine technischen Kenntnisse in der
+              Praxis weiterzuentwickeln und zu vertiefen.
+            </p>
+
+          </div>
+
+          <div class="info-card">
+
+            <div class="info-row">
+              <span data-de="Standort" data-en="Location">Standort</span>
+              <strong>Salé, Marokko</strong>
             </div>
+
+            <div class="info-row">
+              <span data-de="Schwerpunkt" data-en="Focus">Schwerpunkt</span>
+              <strong>Systemintegration</strong>
+            </div>
+
+            <div class="info-row">
+              <span data-de="Deutsch" data-en="German">Deutsch</span>
+              <strong>B2 / C1 Sprechniveau</strong>
+            </div>
+
+            <div class="info-row">
+              <span data-de="Führerschein" data-en="Driving licence">
+                Führerschein
+              </span>
+              <strong>B, C, A</strong>
+            </div>
+
+          </div>
+
         </div>
+
+      </div>
+
     </section>
 
-    <!-- Expertise / Skills -->
-    <section id="expertise" class="py-20 bg-brand-panel border-y border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-white mb-12 flex items-center gap-3">
-                <i class="fas fa-server text-brand-accent"></i> Technisches Fundament
-            </h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-brand-dark p-6 rounded-lg border border-slate-800 hover:border-brand-accent/50 transition-colors">
-                    <i class="fas fa-network-wired text-2xl text-brand-accent mb-4"></i>
-                    <h3 class="text-xl font-semibold text-white mb-3">Netzwerke & OS</h3>
-                    <ul class="text-slate-400 space-y-2 text-sm">
-                        <li><i class="fas fa-check text-brand-accent/50 mr-2"></i> TCP/IP, DHCP, WLAN</li>
-                        <li><i class="fas fa-check text-brand-accent/50 mr-2"></i> Windows & Linux Grundlagen</li>
-                        <li><i class="fas fa-check text-brand-accent/50 mr-2"></i> Virtualisierung (VMware)</li>
-                    </ul>
-                </div>
-                <div class="bg-brand-dark p-6 rounded-lg border border-slate-800 hover:border-brand-accent/50 transition-colors">
-                    <i class="fas fa-shield-halved text-2xl text-brand-success mb-4"></i>
-                    <h3 class="text-xl font-semibold text-white mb-3">IT-Sicherheit</h3>
-                    <ul class="text-slate-400 space-y-2 text-sm">
-                        <li><i class="fas fa-check text-brand-success/50 mr-2"></i> VPN & Firewall-Konzepte</li>
-                        <li><i class="fas fa-check text-brand-success/50 mr-2"></i> IDS/IPS-Grundlagen</li>
-                        <li><i class="fas fa-check text-brand-success/50 mr-2"></i> Netzwerk-Überwachung</li>
-                    </ul>
-                </div>
-                <div class="bg-brand-dark p-6 rounded-lg border border-slate-800 hover:border-brand-accent/50 transition-colors">
-                    <i class="fas fa-headset text-2xl text-blue-500 mb-4"></i>
-                    <h3 class="text-xl font-semibold text-white mb-3">Support & Skripting</h3>
-                    <ul class="text-slate-400 space-y-2 text-sm">
-                        <li><i class="fas fa-check text-blue-500/50 mr-2"></i> 1st-Level IT-Helpdesk</li>
-                        <li><i class="fas fa-check text-blue-500/50 mr-2"></i> Fehlerdiagnose</li>
-                        <li><i class="fas fa-check text-blue-500/50 mr-2"></i> Python Grundkenntnisse</li>
-                    </ul>
-                </div>
-            </div>
+
+    <!-- =========================
+         EXPERIENCE
+    ========================== -->
+    <section class="section" id="experience">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <span>02.</span>
+
+          <h2
+            data-de="Berufserfahrung"
+            data-en="Experience"
+          >
+            Berufserfahrung
+          </h2>
+
         </div>
+
+
+        <div class="timeline">
+
+          <!-- DXC -->
+          <article class="timeline-item">
+
+            <div class="timeline-date">
+              03/2026 — Present
+            </div>
+
+            <div class="timeline-card">
+
+              <div class="card-top">
+
+                <div>
+                  <h3>IT Technical Support Agent</h3>
+                  <p>DXC Technology</p>
+                </div>
+
+                <span class="tag">IT Support</span>
+
+              </div>
+
+              <ul>
+
+                <li
+                  data-de="1st-Level-Support und Fehlerbehebung bei Hard- und Softwarestörungen."
+                  data-en="First-level support and troubleshooting of hardware and software issues."
+                >
+                  1st-Level-Support und Fehlerbehebung bei Hard- und
+                  Softwarestörungen.
+                </li>
+
+                <li
+                  data-de="Technischer IT-Support auf Deutsch über Ticketsystem und Telefon."
+                  data-en="Technical IT support in German via ticketing system and telephone."
+                >
+                  Technischer IT-Support auf Deutsch über Ticketsystem und
+                  Telefon.
+                </li>
+
+                <li
+                  data-de="Diagnose und schnelle Lösung technischer Systemprobleme."
+                  data-en="Diagnosis and rapid resolution of technical system issues."
+                >
+                  Diagnose und schnelle Lösung technischer Systemprobleme.
+                </li>
+
+              </ul>
+
+            </div>
+
+          </article>
+
+
+          <!-- Astra -->
+          <article class="timeline-item">
+
+            <div class="timeline-date">
+              03/2024 — 04/2024
+            </div>
+
+            <div class="timeline-card">
+
+              <div class="card-top">
+
+                <div>
+                  <h3
+                    data-de="Praktikant IT-Sicherheit"
+                    data-en="IT Security Intern"
+                  >
+                    Praktikant IT-Sicherheit
+                  </h3>
+
+                  <p>ASTRA EQUIPEMENT · Casablanca</p>
+                </div>
+
+                <span class="tag">Cybersecurity</span>
+
+              </div>
+
+              <ul>
+
+                <li
+                  data-de="Durchführung von Sicherheitsanalysen zur Identifizierung von Schwachstellen."
+                  data-en="Performed security analyses to identify vulnerabilities."
+                >
+                  Durchführung von Sicherheitsanalysen zur Identifizierung
+                  von Schwachstellen.
+                </li>
+
+                <li
+                  data-de="Mitarbeit bei Sicherheitslösungen wie VPN, Firewall und IDS/IPS."
+                  data-en="Assisted with security solutions including VPN, firewall and IDS/IPS."
+                >
+                  Mitarbeit bei Sicherheitslösungen wie VPN, Firewall und
+                  IDS/IPS.
+                </li>
+
+                <li
+                  data-de="Überwachung der Netzwerkinfrastruktur mit SNMP zur Erkennung von Anomalien."
+                  data-en="Monitored network infrastructure using SNMP to identify anomalies."
+                >
+                  Überwachung der Netzwerkinfrastruktur mit SNMP zur
+                  Erkennung von Anomalien.
+                </li>
+
+              </ul>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
     </section>
 
-    <!-- Experience Timeline -->
-    <section id="experience" class="py-20 bg-brand-dark">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-white mb-12">Erfahrung & Bildungsweg</h2>
-            
-            <div class="space-y-8 border-l-2 border-slate-800 ml-3">
-                <div class="relative pl-8">
-                    <div class="absolute w-4 h-4 bg-brand-accent rounded-full -left-[9px] top-1 border-4 border-brand-dark"></div>
-                    <p class="text-sm text-brand-accent font-semibold mb-1">März 2026 - Heute</p>
-                    <h3 class="text-xl font-bold text-white">Technical Support Agent</h3>
-                    <p class="text-slate-500 mb-3">DXC Technology</p>
-                    <p class="text-slate-400 text-sm">1st-Level-Support zur Behebung technischer Störungen, Bearbeitung von Kundenanfragen auf Deutsch (Telefon/Ticketsystem) und Analyse von IT-Problemen.</p>
-                </div>
-                
-                <div class="relative pl-8">
-                    <div class="absolute w-4 h-4 bg-slate-600 rounded-full -left-[9px] top-1 border-4 border-brand-dark"></div>
-                    <p class="text-sm text-slate-400 font-semibold mb-1">März 2024 - April 2024</p>
-                    <h3 class="text-xl font-bold text-white">IT-Sicherheits-Praktikant</h3>
-                    <p class="text-slate-500 mb-3">ASTRA EQUIPEMENT</p>
-                    <p class="text-slate-400 text-sm">Sicherheitsanalysen zur Schwachstellenidentifizierung, Unterstützung bei VPN/Firewall-Implementierung und Netzwerküberwachung.</p>
-                </div>
-                
-                <div class="relative pl-8">
-                    <div class="absolute w-4 h-4 bg-slate-600 rounded-full -left-[9px] top-1 border-4 border-brand-dark"></div>
-                    <p class="text-sm text-slate-400 font-semibold mb-1">Sep 2023 - Jan 2026</p>
-                    <h3 class="text-xl font-bold text-white">Ausbildung & Weiterbildung Cybersecurity</h3>
-                    <p class="text-slate-500 mb-3">ENSIT & OFPPT, Rabat/Salé</p>
-                    <p class="text-slate-400 text-sm">Staatlich geprüfter Techniker für Cybersecurity mit Schwerpunkt auf Netzwerkschutz und modernen Sicherheitskonzepten.</p>
-                </div>
-            </div>
+
+    <!-- =========================
+         SKILLS
+    ========================== -->
+    <section class="section" id="skills">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <span>03.</span>
+
+          <h2
+            data-de="IT-Kenntnisse"
+            data-en="Technical Skills"
+          >
+            IT-Kenntnisse
+          </h2>
+
         </div>
+
+
+        <div class="skills-grid">
+
+          <div class="skill-card">
+            <div class="skill-icon">⌘</div>
+            <h3>Operating Systems</h3>
+            <p>Windows · Linux</p>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon">◎</div>
+            <h3
+              data-de="Netzwerke"
+              data-en="Networking"
+            >
+              Netzwerke
+            </h3>
+            <p>IP · DHCP · WLAN</p>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon">◇</div>
+            <h3
+              data-de="Virtualisierung"
+              data-en="Virtualization"
+            >
+              Virtualisierung
+            </h3>
+            <p>VMware · VirtualBox</p>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon">⚙</div>
+            <h3>IT Support</h3>
+            <p>Troubleshooting · Incident Management</p>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon">&gt;_</div>
+            <h3>Python</h3>
+            <p
+              data-de="Skripting & Automatisierung"
+              data-en="Scripting & Automation"
+            >
+              Skripting & Automatisierung
+            </p>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon">⬡</div>
+            <h3>Cybersecurity</h3>
+            <p>VPN · Firewall · IDS/IPS · SNMP</p>
+          </div>
+
+        </div>
+
+      </div>
+
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-brand-panel py-8 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 text-center text-slate-500 text-sm">
-            &copy; 2026 Younesse El Akkaoui. Erstellt für Bewerbungszwecke.
+
+    <!-- =========================
+         EDUCATION
+    ========================== -->
+    <section class="section" id="education">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <span>04.</span>
+
+          <h2
+            data-de="Ausbildung & Zertifikate"
+            data-en="Education & Certifications"
+          >
+            Ausbildung & Zertifikate
+          </h2>
+
         </div>
-    </footer>
+
+
+        <div class="education-grid">
+
+          <article class="education-card">
+
+            <span class="year">2025 — 2026</span>
+
+            <h3
+              data-de="Weiterbildung Cybersicherheit"
+              data-en="Cybersecurity Training"
+            >
+              Weiterbildung Cybersicherheit
+            </h3>
+
+            <p>ENSIT Rabat</p>
+
+            <small
+              data-de="Fokus: Netzwerksicherheit · Erfolgreich abgeschlossen"
+              data-en="Focus: Network Security · Successfully completed"
+            >
+              Fokus: Netzwerksicherheit · Erfolgreich abgeschlossen
+            </small>
+
+          </article>
+
+
+          <article class="education-card">
+
+            <span class="year">2023 — 2025</span>
+
+            <h3
+              data-de="Staatlich geprüfter Techniker für Cybersicherheit"
+              data-en="Cybersecurity Technician"
+            >
+              Staatlich geprüfter Techniker für Cybersicherheit
+            </h3>
+
+            <p>OFPPT · Salé</p>
+
+          </article>
+
+
+          <article class="education-card">
+
+            <span class="year">2019 — 2022</span>
+
+            <h3
+              data-de="Allgemeine Hochschulreife"
+              data-en="General Higher Education Entrance Qualification"
+            >
+              Allgemeine Hochschulreife
+            </h3>
+
+            <p>Lycée Jaber Ibn Hayan · Salé</p>
+
+          </article>
+
+        </div>
+
+
+        <div class="certificates">
+
+          <h3
+            data-de="Zertifikate"
+            data-en="Certifications"
+          >
+            Zertifikate
+          </h3>
+
+          <div class="certificate-grid">
+
+            <div class="certificate-card">
+
+              <span>✓</span>
+
+              <div>
+                <h4>Google Cybersecurity</h4>
+                <p>Professional Certificate · Coursera</p>
+              </div>
+
+            </div>
+
+            <div class="certificate-card">
+
+              <span>✓</span>
+
+              <div>
+                <h4>Junior Penetration Tester</h4>
+                <p>TryHackMe · 2026</p>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROJECTS
+    ========================== -->
+    <section class="section" id="projects">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <span>05.</span>
+
+          <h2
+            data-de="Projekte"
+            data-en="Projects"
+          >
+            Projekte
+          </h2>
+
+        </div>
+
+
+        <div class="project-card">
+
+          <div>
+
+            <span class="project-label">GitHub</span>
+
+            <h3
+              data-de="Meine IT-Projekte"
+              data-en="My IT Projects"
+            >
+              Meine IT-Projekte
+            </h3>
+
+            <p
+              data-de="Meine öffentlichen Projekte, Labs und technischen Arbeiten findest du direkt auf meinem GitHub-Profil."
+              data-en="My public projects, labs and technical work can be found directly on my GitHub profile."
+            >
+              Meine öffentlichen Projekte, Labs und technischen Arbeiten
+              findest du direkt auf meinem GitHub-Profil.
+            </p>
+
+          </div>
+
+          <a
+            href="https://github.com/Y-elakkaoui"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-secondary"
+          >
+            github.com/Y-elakkaoui ↗
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         LANGUAGES
+    ========================== -->
+    <section class="section languages-section">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <span>06.</span>
+
+          <h2
+            data-de="Sprachen"
+            data-en="Languages"
+          >
+            Sprachen
+          </h2>
+
+        </div>
+
+        <div class="language-grid">
+
+          <div class="language-card">
+            <span>DE</span>
+            <h3>Deutsch</h3>
+            <p>Fließend</p>
+          </div>
+
+          <div class="language-card">
+            <span>EN</span>
+            <h3>English</h3>
+            <p>Fluent</p>
+          </div>
+
+          <div class="language-card">
+            <span>FR</span>
+            <h3>Français</h3>
+            <p>Bon niveau</p>
+          </div>
+
+          <div class="language-card">
+            <span>AR</span>
+            <h3>العربية</h3>
+            <p>Muttersprache</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+    <section class="section contact-section" id="contact">
+
+      <div class="container contact-container">
+
+        <span class="contact-number">07.</span>
+
+        <h2
+          data-de="Lassen Sie uns sprechen."
+          data-en="Let's connect."
+        >
+          Lassen Sie uns sprechen.
+        </h2>
+
+        <p
+          data-de="Ich suche eine Ausbildung zum Fachinformatiker für Systemintegration und freue mich darauf, mein technisches Wissen in einem professionellen IT-Team weiterzuentwickeln."
+          data-en="I am looking for vocational training as an IT Specialist for System Integration and look forward to developing my technical knowledge within a professional IT team."
+        >
+          Ich suche eine Ausbildung zum Fachinformatiker für
+          Systemintegration und freue mich darauf, mein technisches Wissen
+          in einem professionellen IT-Team weiterzuentwickeln.
+        </p>
+
+
+        <div class="contact-buttons">
+
+          <a
+            href="mailto:younesselakkaouics@gmail.com"
+            class="btn btn-primary"
+          >
+            ✉ younesselakkaouics@gmail.com
+          </a>
+
+          <a
+            href="https://github.com/Y-elakkaoui"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-secondary"
+          >
+            GitHub ↗
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+  <footer class="footer">
+
+    <div class="container footer-content">
+
+      <p>
+        © <span id="currentYear"></span> Younesse El Akkaoui
+      </p>
+
+      <p>
+        <span
+          data-de="Entwickelt mit Fokus auf Systemintegration & Cybersecurity."
+          data-en="Built with a focus on system integration & cybersecurity."
+        >
+          Entwickelt mit Fokus auf Systemintegration & Cybersecurity.
+        </span>
+      </p>
+
+    </div>
+
+  </footer>
+
+
+  <script src="script.js"></script>
 
 </body>
 </html>
