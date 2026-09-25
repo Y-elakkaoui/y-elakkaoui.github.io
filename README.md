@@ -1,18 +1,24 @@
-# Younesse El Akkaoui - IT Portfolio
+# Younesse El Akkaoui - IT-Portfolio
 
-Welcome to the source code of my personal IT portfolio! 
+Willkommen im Quellcode meines persönlichen IT-Portfolios!
 
-## 🌐 Live Website
+## 🌐 Live-Website
 [https://y-elakkaoui.github.io](https://y-elakkaoui.github.io)
 
-## 👨‍💻 About
-This repository hosts my professional portfolio, created to support my application for an *Ausbildung als Fachinformatiker für Systemintegration* in Germany. It outlines my technical foundation in cybersecurity, networking, and IT support, as well as my current training progress.
+## 👨‍💻 Über mich
+Dieses Repository hostet mein professionelles Portfolio, das meine Bewerbung für eine **Ausbildung zum Fachinformatiker für Systemintegration** in Deutschland unterstützt. Es präsentiert meine fundierten Grundlagen in IT-Sicherheit, Netzwerkinfrastruktur, IT-Support sowie meine Sprachkenntnisse.
 
-## 🛠️ Tech Stack
+## 🇩🇪 Sprachkompetenz
+* **Deutsch:** Fließend
+* **Englisch:** Fließend
+* **Französisch:** Gute Kenntnisse
+* **Arabisch:** Muttersprache
+
+## 🛠️ Tech-Stack
 * **HTML5**
-* **Tailwind CSS** (for modern, responsive styling)
-* **Vanilla JavaScript** (for interactive elements, mobile menu, and canvas animations)
+* **Tailwind CSS** (modernes, responsives Design im Cyber-Stil)
+* **Vanilla JavaScript** (Interaktives Design, mobiles Menü & Canvas-Netzwerkanimationen)
 * **FontAwesome** (Icons)
 
-## 🔒 Privacy Note
-To protect sensitive personal data, my official application documents (*Lebenslauf*, *Zeugnisse*) are not hosted publicly in this repository. They are available securely upon request via the contact form on the live website.
+## 🔒 Datenschutzhinweis
+Zum Schutz persönlicher Daten sind vertrauliche Bewerbungsunterlagen (*Lebenslauf*, *Zeugnisse*) nicht öffentlich in diesem Repository hinterlegt. Sie können sicher über das Kontaktformular auf der Website angefordert werden.
