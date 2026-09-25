@@ -1,877 +1,1360 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+/* =========================================================
+   YOUNESSE EL AKKAOUI — PORTFOLIO
+   Dark / Futuristic / Professional
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --bg: #05080d;
+  --bg-soft: #090e16;
+  --card: rgba(10, 18, 29, 0.75);
+  --card-solid: #0a121d;
+
+  --cyan: #00e5ff;
+  --cyan-soft: #65f2ff;
+  --blue: #1687ff;
+  --green: #38f8a0;
+
+  --text: #f4f8fb;
+  --text-soft: #9caebe;
+  --text-dark: #647687;
+
+  --border: rgba(95, 220, 255, 0.13);
+  --border-hover: rgba(0, 229, 255, 0.5);
+
+  --shadow:
+    0 25px 80px rgba(0, 0, 0, 0.35);
+
+  --glow:
+    0 0 25px rgba(0, 229, 255, 0.16);
+
+  --radius: 18px;
+  --container: 1180px;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  background:
+    radial-gradient(circle at 80% 10%, rgba(0, 119, 255, .08), transparent 35%),
+    radial-gradient(circle at 10% 50%, rgba(0, 229, 255, .05), transparent 30%),
+    var(--bg);
+
+  color: var(--text);
+  font-family: "Inter", sans-serif;
+  line-height: 1.7;
+
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+.container {
+  width: min(90%, var(--container));
+  margin: auto;
+}
+
+.section {
+  padding: 110px 0;
+  position: relative;
+}
+
+
+/* =========================================================
+   BACKGROUND GRID
+========================================================= */
+
+.background-grid {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -5;
+
+  background-image:
+    linear-gradient(rgba(0, 229, 255, .025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, .025) 1px, transparent 1px);
+
+  background-size: 50px 50px;
+
+  mask-image:
+    linear-gradient(to bottom, black, transparent 90%);
+}
 
-  <title>Younesse El Akkaoui | Fachinformatiker für Systemintegration</title>
+.background-glow {
+  position: fixed;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: -4;
+}
 
-  <meta
-    name="description"
-    content="Portfolio von Younesse El Akkaoui – IT-Support, Netzwerktechnik, Cybersicherheit und Systemintegration."
-  >
+.glow-one {
+  background: rgba(0, 153, 255, .08);
+  top: -150px;
+  right: -100px;
+}
 
-  <meta name="author" content="Younesse El Akkaoui">
+.glow-two {
+  background: rgba(0, 229, 255, .05);
+  bottom: 0;
+  left: -200px;
+}
 
-  <link rel="stylesheet" href="style.css">
-</head>
 
-<body>
+/* =========================================================
+   HEADER
+========================================================= */
 
-  <!-- Background Effects -->
-  <div class="background-grid"></div>
-  <div class="background-glow glow-one"></div>
-  <div class="background-glow glow-two"></div>
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 
-  <!-- =========================
-       NAVIGATION
-  ========================== -->
-  <header class="header">
-
-    <nav class="navbar container">
+  z-index: 1000;
 
-      <a href="#home" class="logo">
-        <span>&lt;</span>YEA<span>/&gt;</span>
-      </a>
-
-      <button
-        class="mobile-menu-btn"
-        id="mobileMenuBtn"
-        aria-label="Menü öffnen"
-      >
-        ☰
-      </button>
-
-      <div class="nav-links" id="navLinks">
-
-        <a href="#about" data-de="Über mich" data-en="About">
-          Über mich
-        </a>
-
-        <a href="#experience" data-de="Erfahrung" data-en="Experience">
-          Erfahrung
-        </a>
-
-        <a href="#skills" data-de="Skills" data-en="Skills">
-          Skills
-        </a>
-
-        <a href="#education" data-de="Ausbildung" data-en="Education">
-          Ausbildung
-        </a>
-
-        <a href="#projects" data-de="Projekte" data-en="Projects">
-          Projekte
-        </a>
-
-        <a href="#contact" data-de="Kontakt" data-en="Contact">
-          Kontakt
-        </a>
-
-      </div>
-
-      <div class="language-switcher">
-        <button class="lang-btn active" data-lang="de">DE</button>
-        <span>/</span>
-        <button class="lang-btn" data-lang="en">EN</button>
-      </div>
-
-    </nav>
+  background: rgba(5, 8, 13, .76);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 
-  </header>
-
-
-  <main>
+  border-bottom: 1px solid rgba(255,255,255,.05);
+}
 
-    <!-- =========================
-         HERO
-    ========================== -->
-    <section class="hero section" id="home">
+.navbar {
+  height: 76px;
 
-      <div class="container hero-grid">
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-        <div class="hero-content">
+  gap: 30px;
+}
 
-          <div
-            class="availability"
-            data-de="● Verfügbar für eine Ausbildung"
-            data-en="● Available for vocational training"
-          >
-            ● Verfügbar für eine Ausbildung
-          </div>
-
-          <p class="terminal-line">
-            <span class="terminal-symbol">$</span>
-            <span id="typingText">whoami</span>
-          </p>
-
-          <h1>
-            Younesse
-            <span>El Akkaoui</span>
-          </h1>
-
-          <h2
-            data-de="Fachinformatiker für Systemintegration"
-            data-en="IT Specialist for System Integration"
-          >
-            Fachinformatiker für Systemintegration
-          </h2>
-
-          <p
-            class="hero-description"
-            data-de="Technikbegeisterter Berufseinsteiger mit Ausbildung im Bereich Cybersicherheit und praktischer Erfahrung in IT-Support, Netzwerktechnik und Systemanalyse."
-            data-en="Technology-focused IT professional with cybersecurity education and practical experience in IT support, networking and system analysis."
-          >
-            Technikbegeisterter Berufseinsteiger mit Ausbildung im Bereich
-            Cybersicherheit und praktischer Erfahrung in IT-Support,
-            Netzwerktechnik und Systemanalyse.
-          </p>
-
-          <div class="hero-buttons">
-
-            <a
-              href="#contact"
-              class="btn btn-primary"
-              data-de="Kontakt aufnehmen"
-              data-en="Contact me"
-            >
-              Kontakt aufnehmen
-            </a>
-
-            <a
-              href="assets/Lebenslauf.Y.El.Akkaoui.pdf"
-              class="btn btn-secondary"
-              download
-              data-de="↓ Lebenslauf"
-              data-en="↓ Download CV"
-            >
-              ↓ Lebenslauf
-            </a>
-
-          </div>
-
-          <div class="hero-socials">
-
-            <a
-              href="https://github.com/Y-elakkaoui"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              GitHub ↗
-            </a>
-
-            <a href="mailto:younesselakkaouics@gmail.com">
-              E-Mail ↗
-            </a>
-
-          </div>
+.logo {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: -1px;
+}
 
-        </div>
+.logo span {
+  color: var(--cyan);
+}
 
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
 
-        <!-- Profile / Terminal Card -->
-        <div class="hero-card">
+.nav-links a {
+  color: var(--text-soft);
 
-          <div class="terminal">
+  font-family: "JetBrains Mono", monospace;
+  font-size: .79rem;
 
-            <div class="terminal-header">
+  transition: .25s ease;
+}
 
-              <div class="terminal-dots">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
+.nav-links a:hover {
+  color: var(--cyan);
+}
 
-              <span>younesse@portfolio:~</span>
+.language-switcher {
+  display: flex;
+  align-items: center;
+  gap: 7px;
 
-            </div>
+  font-family: "JetBrains Mono", monospace;
 
-            <div class="terminal-body">
+  padding: 6px 10px;
 
-              <p>
-                <span class="terminal-symbol">$</span>
-                cat profile.txt
-              </p>
-
-              <br>
+  background: rgba(255,255,255,.03);
 
-              <p>
-                <span class="terminal-key">name:</span>
-                Younesse El Akkaoui
-              </p>
-
-              <p>
-                <span class="terminal-key">focus:</span>
-                System Integration
-              </p>
-
-              <p>
-                <span class="terminal-key">security:</span>
-                Cybersecurity
-              </p>
-
-              <p>
-                <span class="terminal-key">support:</span>
-                IT Technical Support
-              </p>
-
-              <p>
-                <span class="terminal-key">network:</span>
-                IP / DHCP / WLAN
-              </p>
-
-              <p>
-                <span class="terminal-key">systems:</span>
-                Windows / Linux
-              </p>
-
-              <br>
-
-              <p>
-                <span class="terminal-symbol">$</span>
-                <span
-                  data-de="status --ausbildung"
-                  data-en="status --training"
-                >
-                  status --ausbildung
-                </span>
-              </p>
+  border: 1px solid var(--border);
+  border-radius: 9px;
+}
 
-              <p class="success">
-                ✓ AVAILABLE
-              </p>
+.lang-btn {
+  border: none;
+  background: transparent;
+  color: var(--text-dark);
 
-              <p>
-                <span class="terminal-symbol">$</span>
-                <span class="cursor">_</span>
-              </p>
+  cursor: pointer;
 
-            </div>
+  font-size: .75rem;
+  font-weight: 700;
+}
 
-          </div>
+.lang-btn.active {
+  color: var(--cyan);
+}
 
-        </div>
+.mobile-menu-btn {
+  display: none;
 
-      </div>
+  border: none;
+  background: transparent;
 
-    </section>
+  color: var(--cyan);
 
+  font-size: 1.6rem;
+  cursor: pointer;
+}
 
-    <!-- =========================
-         ABOUT
-    ========================== -->
-    <section class="section" id="about">
 
-      <div class="container">
+/* =========================================================
+   HERO
+========================================================= */
 
-        <div class="section-heading">
+.hero {
+  min-height: 100vh;
 
-          <span>01.</span>
+  display: flex;
+  align-items: center;
 
-          <h2
-            data-de="Über mich"
-            data-en="About me"
-          >
-            Über mich
-          </h2>
+  padding-top: 150px;
+}
 
-        </div>
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.08fr .92fr;
 
-        <div class="about-grid">
+  align-items: center;
+  gap: 80px;
+}
 
-          <div class="about-text">
+.availability {
+  display: inline-flex;
+  align-items: center;
 
-            <p
-              data-de="Ich bin ein engagierter und technikaffiner Berufseinsteiger mit fundierter Ausbildung im Bereich Cybersicherheit. Durch meine praktische Erfahrung im IT-Support für ein deutsches IT-Projekt sowie in Netzwerksicherheit und Systemanalyse konnte ich bereits wichtige Kenntnisse im professionellen IT-Umfeld sammeln."
-              data-en="I am a motivated technology-focused IT professional with a solid education in cybersecurity. Through practical experience in IT support for a German IT project as well as network security and system analysis, I have gained valuable experience in a professional IT environment."
-            >
-              Ich bin ein engagierter und technikaffiner Berufseinsteiger
-              mit fundierter Ausbildung im Bereich Cybersicherheit. Durch
-              meine praktische Erfahrung im IT-Support für ein deutsches
-              IT-Projekt sowie in Netzwerksicherheit und Systemanalyse
-              konnte ich bereits wichtige Kenntnisse im professionellen
-              IT-Umfeld sammeln.
-            </p>
+  margin-bottom: 25px;
 
-            <p
-              data-de="Mein Ziel ist eine Ausbildung zum Fachinformatiker für Systemintegration, um meine technischen Kenntnisse in der Praxis weiterzuentwickeln und zu vertiefen."
-              data-en="My goal is vocational training as an IT Specialist for System Integration, where I can further develop and deepen my technical skills through practical experience."
-            >
-              Mein Ziel ist eine Ausbildung zum Fachinformatiker für
-              Systemintegration, um meine technischen Kenntnisse in der
-              Praxis weiterzuentwickeln und zu vertiefen.
-            </p>
+  padding: 8px 14px;
 
-          </div>
+  color: var(--green);
 
-          <div class="info-card">
+  background: rgba(56, 248, 160, .05);
 
-            <div class="info-row">
-              <span data-de="Standort" data-en="Location">Standort</span>
-              <strong>Salé, Marokko</strong>
-            </div>
+  border: 1px solid rgba(56, 248, 160, .16);
+  border-radius: 30px;
 
-            <div class="info-row">
-              <span data-de="Schwerpunkt" data-en="Focus">Schwerpunkt</span>
-              <strong>Systemintegration</strong>
-            </div>
+  font-family: "JetBrains Mono", monospace;
+  font-size: .74rem;
+}
 
-            <div class="info-row">
-              <span data-de="Deutsch" data-en="German">Deutsch</span>
-              <strong>B2 / C1 Sprechniveau</strong>
-            </div>
+.terminal-line {
+  color: var(--text-soft);
 
-            <div class="info-row">
-              <span data-de="Führerschein" data-en="Driving licence">
-                Führerschein
-              </span>
-              <strong>B, C, A</strong>
-            </div>
+  font-family: "JetBrains Mono", monospace;
+  font-size: .9rem;
 
-          </div>
+  margin-bottom: 10px;
+}
 
-        </div>
+.terminal-symbol {
+  color: var(--cyan);
+  margin-right: 7px;
+}
 
-      </div>
+.hero h1 {
+  font-size: clamp(3.3rem, 7vw, 6.8rem);
 
-    </section>
+  line-height: .95;
 
+  letter-spacing: -6px;
 
-    <!-- =========================
-         EXPERIENCE
-    ========================== -->
-    <section class="section" id="experience">
+  margin-bottom: 25px;
+}
 
-      <div class="container">
+.hero h1 span {
+  display: block;
 
-        <div class="section-heading">
+  color: transparent;
 
-          <span>02.</span>
+  -webkit-text-stroke: 1px rgba(101, 242, 255, .8);
 
-          <h2
-            data-de="Berufserfahrung"
-            data-en="Experience"
-          >
-            Berufserfahrung
-          </h2>
+  text-shadow:
+    0 0 35px rgba(0,229,255,.12);
+}
 
-        </div>
+.hero h2 {
+  font-family: "JetBrains Mono", monospace;
 
+  color: var(--cyan);
 
-        <div class="timeline">
+  font-size: clamp(1rem, 2vw, 1.35rem);
 
-          <!-- DXC -->
-          <article class="timeline-item">
+  margin-bottom: 24px;
+}
 
-            <div class="timeline-date">
-              03/2026 — Present
-            </div>
+.hero-description {
+  max-width: 660px;
 
-            <div class="timeline-card">
+  color: var(--text-soft);
 
-              <div class="card-top">
+  font-size: 1.04rem;
 
-                <div>
-                  <h3>IT Technical Support Agent</h3>
-                  <p>DXC Technology</p>
-                </div>
+  margin-bottom: 35px;
+}
 
-                <span class="tag">IT Support</span>
+.hero-buttons {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
 
-              </div>
+  margin-bottom: 30px;
+}
 
-              <ul>
 
-                <li
-                  data-de="1st-Level-Support und Fehlerbehebung bei Hard- und Softwarestörungen."
-                  data-en="First-level support and troubleshooting of hardware and software issues."
-                >
-                  1st-Level-Support und Fehlerbehebung bei Hard- und
-                  Softwarestörungen.
-                </li>
+/* =========================================================
+   BUTTONS
+========================================================= */
 
-                <li
-                  data-de="Technischer IT-Support auf Deutsch über Ticketsystem und Telefon."
-                  data-en="Technical IT support in German via ticketing system and telephone."
-                >
-                  Technischer IT-Support auf Deutsch über Ticketsystem und
-                  Telefon.
-                </li>
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-                <li
-                  data-de="Diagnose und schnelle Lösung technischer Systemprobleme."
-                  data-en="Diagnosis and rapid resolution of technical system issues."
-                >
-                  Diagnose und schnelle Lösung technischer Systemprobleme.
-                </li>
+  min-height: 48px;
 
-              </ul>
+  padding: 0 22px;
 
-            </div>
+  border-radius: 10px;
 
-          </article>
+  font-family: "JetBrains Mono", monospace;
+  font-size: .8rem;
+  font-weight: 600;
 
+  transition:
+    transform .25s ease,
+    border-color .25s ease,
+    box-shadow .25s ease,
+    background .25s ease;
+}
 
-          <!-- Astra -->
-          <article class="timeline-item">
+.btn:hover {
+  transform: translateY(-3px);
+}
 
-            <div class="timeline-date">
-              03/2024 — 04/2024
-            </div>
+.btn-primary {
+  color: #001014;
 
-            <div class="timeline-card">
+  background: var(--cyan);
 
-              <div class="card-top">
+  box-shadow:
+    0 0 30px rgba(0, 229, 255, .15);
+}
 
-                <div>
-                  <h3
-                    data-de="Praktikant IT-Sicherheit"
-                    data-en="IT Security Intern"
-                  >
-                    Praktikant IT-Sicherheit
-                  </h3>
+.btn-primary:hover {
+  box-shadow:
+    0 0 35px rgba(0, 229, 255, .35);
+}
 
-                  <p>ASTRA EQUIPEMENT · Casablanca</p>
-                </div>
+.btn-secondary {
+  color: var(--text);
 
-                <span class="tag">Cybersecurity</span>
+  background: rgba(255,255,255,.025);
 
-              </div>
+  border: 1px solid var(--border);
+}
 
-              <ul>
+.btn-secondary:hover {
+  border-color: var(--cyan);
 
-                <li
-                  data-de="Durchführung von Sicherheitsanalysen zur Identifizierung von Schwachstellen."
-                  data-en="Performed security analyses to identify vulnerabilities."
-                >
-                  Durchführung von Sicherheitsanalysen zur Identifizierung
-                  von Schwachstellen.
-                </li>
+  background: rgba(0,229,255,.04);
+}
 
-                <li
-                  data-de="Mitarbeit bei Sicherheitslösungen wie VPN, Firewall und IDS/IPS."
-                  data-en="Assisted with security solutions including VPN, firewall and IDS/IPS."
-                >
-                  Mitarbeit bei Sicherheitslösungen wie VPN, Firewall und
-                  IDS/IPS.
-                </li>
+.hero-socials {
+  display: flex;
+  gap: 25px;
 
-                <li
-                  data-de="Überwachung der Netzwerkinfrastruktur mit SNMP zur Erkennung von Anomalien."
-                  data-en="Monitored network infrastructure using SNMP to identify anomalies."
-                >
-                  Überwachung der Netzwerkinfrastruktur mit SNMP zur
-                  Erkennung von Anomalien.
-                </li>
+  font-family: "JetBrains Mono", monospace;
+  font-size: .8rem;
+}
 
-              </ul>
+.hero-socials a {
+  color: var(--text-soft);
 
-            </div>
+  transition: .2s;
+}
 
-          </article>
+.hero-socials a:hover {
+  color: var(--cyan);
+}
 
-        </div>
 
-      </div>
+/* =========================================================
+   TERMINAL CARD
+========================================================= */
 
-    </section>
+.hero-card {
+  position: relative;
+}
 
+.hero-card::before {
+  content: "";
 
-    <!-- =========================
-         SKILLS
-    ========================== -->
-    <section class="section" id="skills">
+  position: absolute;
 
-      <div class="container">
+  width: 80%;
+  height: 80%;
 
-        <div class="section-heading">
+  top: 10%;
+  left: 10%;
 
-          <span>03.</span>
+  background: rgba(0, 229, 255, .15);
 
-          <h2
-            data-de="IT-Kenntnisse"
-            data-en="Technical Skills"
-          >
-            IT-Kenntnisse
-          </h2>
+  filter: blur(80px);
 
-        </div>
+  z-index: -1;
+}
 
+.terminal {
+  overflow: hidden;
 
-        <div class="skills-grid">
+  background:
+    linear-gradient(
+      145deg,
+      rgba(11, 20, 32, .95),
+      rgba(5, 10, 17, .95)
+    );
 
-          <div class="skill-card">
-            <div class="skill-icon">⌘</div>
-            <h3>Operating Systems</h3>
-            <p>Windows · Linux</p>
-          </div>
+  border: 1px solid rgba(0, 229, 255, .22);
 
-          <div class="skill-card">
-            <div class="skill-icon">◎</div>
-            <h3
-              data-de="Netzwerke"
-              data-en="Networking"
-            >
-              Netzwerke
-            </h3>
-            <p>IP · DHCP · WLAN</p>
-          </div>
+  border-radius: var(--radius);
 
-          <div class="skill-card">
-            <div class="skill-icon">◇</div>
-            <h3
-              data-de="Virtualisierung"
-              data-en="Virtualization"
-            >
-              Virtualisierung
-            </h3>
-            <p>VMware · VirtualBox</p>
-          </div>
+  box-shadow:
+    0 40px 100px rgba(0,0,0,.55),
+    0 0 50px rgba(0,229,255,.08);
 
-          <div class="skill-card">
-            <div class="skill-icon">⚙</div>
-            <h3>IT Support</h3>
-            <p>Troubleshooting · Incident Management</p>
-          </div>
+  transform: perspective(1000px) rotateY(-4deg);
+}
 
-          <div class="skill-card">
-            <div class="skill-icon">&gt;_</div>
-            <h3>Python</h3>
-            <p
-              data-de="Skripting & Automatisierung"
-              data-en="Scripting & Automation"
-            >
-              Skripting & Automatisierung
-            </p>
-          </div>
+.terminal-header {
+  min-height: 48px;
 
-          <div class="skill-card">
-            <div class="skill-icon">⬡</div>
-            <h3>Cybersecurity</h3>
-            <p>VPN · Firewall · IDS/IPS · SNMP</p>
-          </div>
+  display: flex;
+  align-items: center;
 
-        </div>
+  padding: 0 18px;
 
-      </div>
+  background: rgba(255,255,255,.025);
 
-    </section>
+  border-bottom: 1px solid rgba(255,255,255,.05);
 
+  color: var(--text-dark);
 
-    <!-- =========================
-         EDUCATION
-    ========================== -->
-    <section class="section" id="education">
+  font-family: "JetBrains Mono", monospace;
+  font-size: .7rem;
+}
 
-      <div class="container">
+.terminal-dots {
+  display: flex;
+  gap: 7px;
 
-        <div class="section-heading">
+  margin-right: auto;
+}
 
-          <span>04.</span>
+.terminal-dots span {
+  width: 9px;
+  height: 9px;
 
-          <h2
-            data-de="Ausbildung & Zertifikate"
-            data-en="Education & Certifications"
-          >
-            Ausbildung & Zertifikate
-          </h2>
+  border-radius: 50%;
 
-        </div>
+  background: #243343;
+}
 
+.terminal-dots span:first-child {
+  background: #ff5f57;
+}
 
-        <div class="education-grid">
+.terminal-dots span:nth-child(2) {
+  background: #febc2e;
+}
 
-          <article class="education-card">
+.terminal-dots span:nth-child(3) {
+  background: #28c840;
+}
 
-            <span class="year">2025 — 2026</span>
+.terminal-body {
+  min-height: 390px;
 
-            <h3
-              data-de="Weiterbildung Cybersicherheit"
-              data-en="Cybersecurity Training"
-            >
-              Weiterbildung Cybersicherheit
-            </h3>
+  padding: 35px;
 
-            <p>ENSIT Rabat</p>
+  color: #a8b8c6;
 
-            <small
-              data-de="Fokus: Netzwerksicherheit · Erfolgreich abgeschlossen"
-              data-en="Focus: Network Security · Successfully completed"
-            >
-              Fokus: Netzwerksicherheit · Erfolgreich abgeschlossen
-            </small>
+  font-family: "JetBrains Mono", monospace;
+  font-size: .82rem;
 
-          </article>
+  line-height: 2;
+}
 
+.terminal-key {
+  color: var(--cyan);
+}
 
-          <article class="education-card">
+.success {
+  color: var(--green);
+}
 
-            <span class="year">2023 — 2025</span>
+.cursor {
+  color: var(--cyan);
 
-            <h3
-              data-de="Staatlich geprüfter Techniker für Cybersicherheit"
-              data-en="Cybersecurity Technician"
-            >
-              Staatlich geprüfter Techniker für Cybersicherheit
-            </h3>
+  animation: blink 1s infinite;
+}
 
-            <p>OFPPT · Salé</p>
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
 
-          </article>
 
+/* =========================================================
+   SECTION HEADINGS
+========================================================= */
 
-          <article class="education-card">
+.section-heading {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 
-            <span class="year">2019 — 2022</span>
+  margin-bottom: 55px;
+}
 
-            <h3
-              data-de="Allgemeine Hochschulreife"
-              data-en="General Higher Education Entrance Qualification"
-            >
-              Allgemeine Hochschulreife
-            </h3>
+.section-heading span {
+  color: var(--cyan);
 
-            <p>Lycée Jaber Ibn Hayan · Salé</p>
+  font-family: "JetBrains Mono", monospace;
+  font-size: .9rem;
+}
 
-          </article>
+.section-heading h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
 
-        </div>
+  letter-spacing: -2px;
+}
 
+.section-heading::after {
+  content: "";
 
-        <div class="certificates">
+  height: 1px;
+  flex: 1;
 
-          <h3
-            data-de="Zertifikate"
-            data-en="Certifications"
-          >
-            Zertifikate
-          </h3>
+  max-width: 300px;
 
-          <div class="certificate-grid">
+  margin-left: 10px;
 
-            <div class="certificate-card">
+  background:
+    linear-gradient(
+      to right,
+      var(--border),
+      transparent
+    );
+}
 
-              <span>✓</span>
 
-              <div>
-                <h4>Google Cybersecurity</h4>
-                <p>Professional Certificate · Coursera</p>
-              </div>
+/* =========================================================
+   ABOUT
+========================================================= */
 
-            </div>
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.3fr .7fr;
 
-            <div class="certificate-card">
+  gap: 60px;
+}
 
-              <span>✓</span>
+.about-text p {
+  color: var(--text-soft);
 
-              <div>
-                <h4>Junior Penetration Tester</h4>
-                <p>TryHackMe · 2026</p>
-              </div>
+  font-size: 1.03rem;
 
-            </div>
+  margin-bottom: 20px;
 
-          </div>
+  max-width: 720px;
+}
 
-        </div>
+.info-card {
+  padding: 28px;
 
-      </div>
+  background: var(--card);
 
-    </section>
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
 
+  box-shadow: var(--shadow);
 
-    <!-- =========================
-         PROJECTS
-    ========================== -->
-    <section class="section" id="projects">
+  backdrop-filter: blur(10px);
+}
 
-      <div class="container">
+.info-row {
+  display: flex;
+  justify-content: space-between;
 
-        <div class="section-heading">
+  gap: 20px;
 
-          <span>05.</span>
+  padding: 16px 0;
 
-          <h2
-            data-de="Projekte"
-            data-en="Projects"
-          >
-            Projekte
-          </h2>
+  border-bottom: 1px solid rgba(255,255,255,.05);
+}
 
-        </div>
+.info-row:last-child {
+  border: none;
+}
 
+.info-row span {
+  color: var(--text-dark);
 
-        <div class="project-card">
+  font-family: "JetBrains Mono", monospace;
+  font-size: .72rem;
+}
 
-          <div>
+.info-row strong {
+  font-size: .82rem;
+  text-align: right;
+}
 
-            <span class="project-label">GitHub</span>
 
-            <h3
-              data-de="Meine IT-Projekte"
-              data-en="My IT Projects"
-            >
-              Meine IT-Projekte
-            </h3>
+/* =========================================================
+   EXPERIENCE TIMELINE
+========================================================= */
 
-            <p
-              data-de="Meine öffentlichen Projekte, Labs und technischen Arbeiten findest du direkt auf meinem GitHub-Profil."
-              data-en="My public projects, labs and technical work can be found directly on my GitHub profile."
-            >
-              Meine öffentlichen Projekte, Labs und technischen Arbeiten
-              findest du direkt auf meinem GitHub-Profil.
-            </p>
+.timeline {
+  position: relative;
+}
 
-          </div>
+.timeline::before {
+  content: "";
 
-          <a
-            href="https://github.com/Y-elakkaoui"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-secondary"
-          >
-            github.com/Y-elakkaoui ↗
-          </a>
+  position: absolute;
 
-        </div>
+  top: 0;
+  bottom: 0;
+  left: 150px;
 
-      </div>
+  width: 1px;
 
-    </section>
+  background:
+    linear-gradient(
+      var(--cyan),
+      rgba(0,229,255,.05)
+    );
+}
 
+.timeline-item {
+  display: grid;
+  grid-template-columns: 120px 1fr;
 
-    <!-- =========================
-         LANGUAGES
-    ========================== -->
-    <section class="section languages-section">
+  gap: 60px;
 
-      <div class="container">
+  position: relative;
 
-        <div class="section-heading">
+  margin-bottom: 35px;
+}
 
-          <span>06.</span>
+.timeline-item::before {
+  content: "";
 
-          <h2
-            data-de="Sprachen"
-            data-en="Languages"
-          >
-            Sprachen
-          </h2>
+  position: absolute;
 
-        </div>
+  left: 145px;
+  top: 31px;
 
-        <div class="language-grid">
+  width: 11px;
+  height: 11px;
 
-          <div class="language-card">
-            <span>DE</span>
-            <h3>Deutsch</h3>
-            <p>Fließend</p>
-          </div>
+  border-radius: 50%;
 
-          <div class="language-card">
-            <span>EN</span>
-            <h3>English</h3>
-            <p>Fluent</p>
-          </div>
+  background: var(--bg);
 
-          <div class="language-card">
-            <span>FR</span>
-            <h3>Français</h3>
-            <p>Bon niveau</p>
-          </div>
+  border: 2px solid var(--cyan);
 
-          <div class="language-card">
-            <span>AR</span>
-            <h3>العربية</h3>
-            <p>Muttersprache</p>
-          </div>
+  box-shadow:
+    0 0 18px rgba(0,229,255,.5);
+}
 
-        </div>
+.timeline-date {
+  padding-top: 25px;
 
-      </div>
+  color: var(--cyan);
 
-    </section>
+  font-family: "JetBrains Mono", monospace;
+  font-size: .72rem;
+}
 
+.timeline-card {
+  padding: 30px;
 
-    <!-- =========================
-         CONTACT
-    ========================== -->
-    <section class="section contact-section" id="contact">
+  background:
+    linear-gradient(
+      145deg,
+      rgba(13, 22, 35, .8),
+      rgba(7, 12, 20, .8)
+    );
 
-      <div class="container contact-container">
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
 
-        <span class="contact-number">07.</span>
+  transition: .3s ease;
+}
 
-        <h2
-          data-de="Lassen Sie uns sprechen."
-          data-en="Let's connect."
-        >
-          Lassen Sie uns sprechen.
-        </h2>
+.timeline-card:hover {
+  transform: translateY(-4px);
 
-        <p
-          data-de="Ich suche eine Ausbildung zum Fachinformatiker für Systemintegration und freue mich darauf, mein technisches Wissen in einem professionellen IT-Team weiterzuentwickeln."
-          data-en="I am looking for vocational training as an IT Specialist for System Integration and look forward to developing my technical knowledge within a professional IT team."
-        >
-          Ich suche eine Ausbildung zum Fachinformatiker für
-          Systemintegration und freue mich darauf, mein technisches Wissen
-          in einem professionellen IT-Team weiterzuentwickeln.
-        </p>
+  border-color: var(--border-hover);
 
+  box-shadow: var(--glow);
+}
 
-        <div class="contact-buttons">
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
 
-          <a
-            href="mailto:younesselakkaouics@gmail.com"
-            class="btn btn-primary"
-          >
-            ✉ younesselakkaouics@gmail.com
-          </a>
+  margin-bottom: 20px;
+}
 
-          <a
-            href="https://github.com/Y-elakkaoui"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-secondary"
-          >
-            GitHub ↗
-          </a>
+.card-top h3 {
+  font-size: 1.2rem;
+}
 
-        </div>
+.card-top p {
+  color: var(--cyan);
 
-      </div>
+  font-family: "JetBrains Mono", monospace;
+  font-size: .75rem;
 
-    </section>
+  margin-top: 4px;
+}
 
-  </main>
+.tag {
+  height: fit-content;
 
+  padding: 5px 10px;
 
-  <!-- =========================
-       FOOTER
-  ========================== -->
-  <footer class="footer">
+  color: var(--cyan);
 
-    <div class="container footer-content">
+  background: rgba(0,229,255,.04);
 
-      <p>
-        © <span id="currentYear"></span> Younesse El Akkaoui
-      </p>
+  border: 1px solid rgba(0,229,255,.12);
+  border-radius: 30px;
 
-      <p>
-        <span
-          data-de="Entwickelt mit Fokus auf Systemintegration & Cybersecurity."
-          data-en="Built with a focus on system integration & cybersecurity."
-        >
-          Entwickelt mit Fokus auf Systemintegration & Cybersecurity.
-        </span>
-      </p>
+  font-family: "JetBrains Mono", monospace;
+  font-size: .65rem;
+}
 
-    </div>
+.timeline-card ul {
+  padding-left: 18px;
+}
 
-  </footer>
+.timeline-card li {
+  color: var(--text-soft);
 
+  margin-bottom: 7px;
+}
 
-  <script src="script.js"></script>
 
-</body>
-</html>
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.skills-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 18px;
+}
+
+.skill-card {
+  position: relative;
+
+  min-height: 190px;
+
+  padding: 28px;
+
+  overflow: hidden;
+
+  background: var(--card);
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+
+  transition: .3s ease;
+}
+
+.skill-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 100px;
+  height: 100px;
+
+  right: -50px;
+  bottom: -50px;
+
+  background: var(--cyan);
+
+  border-radius: 50%;
+
+  filter: blur(60px);
+
+  opacity: 0;
+
+  transition: .3s;
+}
+
+.skill-card:hover {
+  transform: translateY(-6px);
+
+  border-color: var(--border-hover);
+
+  box-shadow: var(--glow);
+}
+
+.skill-card:hover::after {
+  opacity: .16;
+}
+
+.skill-icon {
+  width: 42px;
+  height: 42px;
+
+  display: grid;
+  place-items: center;
+
+  margin-bottom: 30px;
+
+  color: var(--cyan);
+
+  background: rgba(0,229,255,.05);
+
+  border: 1px solid rgba(0,229,255,.15);
+  border-radius: 10px;
+
+  font-family: "JetBrains Mono", monospace;
+}
+
+.skill-card h3 {
+  font-size: 1rem;
+
+  margin-bottom: 6px;
+}
+
+.skill-card p {
+  color: var(--text-dark);
+
+  font-family: "JetBrains Mono", monospace;
+  font-size: .72rem;
+}
+
+
+/* =========================================================
+   EDUCATION
+========================================================= */
+
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 18px;
+}
+
+.education-card {
+  padding: 28px;
+
+  background: var(--card);
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+
+  transition: .3s ease;
+}
+
+.education-card:hover {
+  border-color: var(--border-hover);
+
+  transform: translateY(-4px);
+}
+
+.year {
+  color: var(--cyan);
+
+  font-family: "JetBrains Mono", monospace;
+  font-size: .7rem;
+}
+
+.education-card h3 {
+  margin: 15px 0 8px;
+
+  font-size: 1rem;
+}
+
+.education-card p {
+  color: var(--text-soft);
+
+  font-size: .85rem;
+
+  margin-bottom: 10px;
+}
+
+.education-card small {
+  color: var(--text-dark);
+}
+
+.certificates {
+  margin-top: 50px;
+}
+
+.certificates > h3 {
+  margin-bottom: 20px;
+
+  font-family: "JetBrains Mono", monospace;
+
+  color: var(--text-soft);
+}
+
+.certificate-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 18px;
+}
+
+.certificate-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  padding: 22px;
+
+  background: rgba(255,255,255,.018);
+
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.certificate-card > span {
+  color: var(--green);
+
+  font-size: 1.2rem;
+}
+
+.certificate-card h4 {
+  margin-bottom: 3px;
+}
+
+.certificate-card p {
+  color: var(--text-dark);
+
+  font-size: .8rem;
+}
+
+
+/* =========================================================
+   PROJECT
+========================================================= */
+
+.project-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 50px;
+
+  padding: 45px;
+
+  background:
+    linear-gradient(
+      120deg,
+      rgba(0,229,255,.06),
+      rgba(10,18,29,.8)
+    );
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+
+  box-shadow: var(--shadow);
+}
+
+.project-label {
+  color: var(--cyan);
+
+  font-family: "JetBrains Mono", monospace;
+  font-size: .7rem;
+}
+
+.project-card h3 {
+  margin: 8px 0;
+
+  font-size: 1.5rem;
+}
+
+.project-card p {
+  color: var(--text-soft);
+
+  max-width: 650px;
+}
+
+
+/* =========================================================
+   LANGUAGES
+========================================================= */
+
+.language-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 18px;
+}
+
+.language-card {
+  padding: 25px;
+
+  text-align: center;
+
+  background: rgba(255,255,255,.018);
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.language-card > span {
+  display: inline-grid;
+  place-items: center;
+
+  width: 45px;
+  height: 45px;
+
+  margin-bottom: 15px;
+
+  color: var(--cyan);
+
+  background: rgba(0,229,255,.05);
+
+  border-radius: 50%;
+
+  font-family: "JetBrains Mono", monospace;
+  font-size: .7rem;
+}
+
+.language-card h3 {
+  font-size: .95rem;
+}
+
+.language-card p {
+  color: var(--text-dark);
+
+  font-size: .75rem;
+
+  margin-top: 4px;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-section {
+  padding-top: 150px;
+  padding-bottom: 160px;
+
+  text-align: center;
+}
+
+.contact-container {
+  max-width: 800px;
+}
+
+.contact-number {
+  color: var(--cyan);
+
+  font-family: "JetBrains Mono", monospace;
+}
+
+.contact-section h2 {
+  margin: 15px 0 20px;
+
+  font-size: clamp(2.5rem, 6vw, 5rem);
+
+  letter-spacing: -4px;
+}
+
+.contact-section p {
+  max-width: 650px;
+
+  margin: auto auto 35px;
+
+  color: var(--text-soft);
+}
+
+.contact-buttons {
+  display: flex;
+  justify-content: center;
+
+  gap: 14px;
+
+  flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+  border-top: 1px solid rgba(255,255,255,.05);
+
+  padding: 30px 0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  color: var(--text-dark);
+
+  font-family: "JetBrains Mono", monospace;
+  font-size: .67rem;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #173041;
+
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cyan);
+}
+
+
+/* =========================================================
+   SELECTION
+========================================================= */
+
+::selection {
+  color: #001014;
+
+  background: var(--cyan);
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 950px) {
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content {
+    max-width: 700px;
+  }
+
+  .hero-card {
+    max-width: 650px;
+  }
+
+  .terminal {
+    transform: none;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .education-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .language-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 760px) {
+
+  .section {
+    padding: 80px 0;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+
+    order: 3;
+  }
+
+  .nav-links {
+    display: none;
+
+    position: absolute;
+
+    top: 76px;
+    left: 5%;
+    right: 5%;
+
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding: 25px;
+
+    background: rgba(5,8,13,.97);
+
+    border: 1px solid var(--border);
+    border-radius: 15px;
+
+    box-shadow: var(--shadow);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .language-switcher {
+    margin-left: auto;
+  }
+
+  .hero {
+    padding-top: 130px;
+  }
+
+  .hero-grid {
+    gap: 50px;
+  }
+
+  .hero h1 {
+    letter-spacing: -3px;
+  }
+
+  .terminal-body {
+    padding: 25px;
+
+    min-height: 330px;
+
+    font-size: .7rem;
+  }
+
+  .timeline::before,
+  .timeline-item::before {
+    display: none;
+  }
+
+  .timeline-item {
+    grid-template-columns: 1fr;
+
+    gap: 10px;
+  }
+
+  .timeline-date {
+    padding-top: 0;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .certificate-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card {
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding: 30px;
+  }
+
+  .language-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-content {
+    flex-direction: column;
+
+    text-align: center;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL DEVICES
+========================================================= */
+
+@media (max-width: 430px) {
+
+  .hero-buttons,
+  .contact-buttons {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .language-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 3.2rem;
+  }
+
+}
