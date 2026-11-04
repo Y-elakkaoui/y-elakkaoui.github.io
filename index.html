@@ -219,7 +219,7 @@
             <div class="project-body">
                 <div class="project-label">LAB 01 · <span data-en="NETWORK">NETZWERK</span></div>
                 <h3 data-en="Multi-site network with VLANs and OSPF">Standortnetz mit VLANs und OSPF</h3>
-                <p data-en="An enterprise network in GNS3: headquarters with DMZ and a branch office, connected by a WAN link.">Ein Unternehmensnetz in GNS3: Hauptsitz mit DMZ und eine Filiale, verbunden über eine WAN-Strecke.</p>
+                <p data-en="An enterprise network in GNS3: headquarters and a branch office, connected by a WAN link.">Ein Unternehmensnetz in GNS3: Hauptsitz und eine Filiale, verbunden über eine WAN-Strecke.</p>
                 <dl class="project-points">
                     <div>
                         <dt data-en="Built">Umgesetzt</dt>
@@ -229,9 +229,13 @@
                         <dt data-en="Verified">Geprüft</dt>
                         <dd data-en="The OSPF adjacency between both routers reaches the FULL state (show ip ospf neighbor).">Die OSPF-Nachbarschaft beider Router erreicht den Status FULL (show ip ospf neighbor).</dd>
                     </div>
+                    <div class="open">
+                        <dt data-en="Open">Offen</dt>
+                        <dd data-en="No ACLs yet, so the VLANs can still reach each other, and there is only one WAN link. Next step: filter traffic to the guest network and server zone, then document tests.">Noch keine ACLs, die VLANs erreichen sich also weiterhin gegenseitig, und es gibt nur eine WAN-Strecke. Nächster Schritt: Verkehr zu Gäste- und Servernetz filtern und Tests dokumentieren.</dd>
+                    </div>
                 </dl>
                 <ul class="tags">
-                    <li>GNS3</li><li>VLAN</li><li>802.1Q</li><li>OSPF</li><li>DMZ</li>
+                    <li>GNS3</li><li>VLAN</li><li>802.1Q</li><li>OSPF</li>
                 </ul>
                 <a class="text-link" href="https://github.com/Y-elakkaoui/Enterprise-MultiSite-VLAN-OSPF" target="_blank" rel="noopener noreferrer" data-en="Configuration on GitHub ↗">Konfiguration auf GitHub ↗</a>
             </div>
