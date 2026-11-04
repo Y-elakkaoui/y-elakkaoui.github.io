@@ -1,24 +1,33 @@
-# Younesse El Akkaoui - IT-Portfolio
+# Younesse El Akkaoui – IT-Portfolio
 
-Willkommen im Quellcode meines persönlichen IT-Portfolios!
+Quellcode meines persönlichen Portfolios zur Bewerbung um eine **Ausbildung zum Fachinformatiker für Systemintegration** in Deutschland.
 
-## 🌐 Live-Website
-[https://y-elakkaoui.github.io](https://y-elakkaoui.github.io)
+**Live:** [y-elakkaoui.github.io](https://y-elakkaoui.github.io)
 
-## 👨‍💻 Über mich
-Dieses Repository hostet mein professionelles Portfolio, das meine Bewerbung für eine **Ausbildung zum Fachinformatiker für Systemintegration** in Deutschland unterstützt. Es präsentiert meine fundierten Grundlagen in IT-Sicherheit, Netzwerkinfrastruktur, IT-Support sowie meine Sprachkenntnisse.
+## Aufbau
 
-## 🇩🇪 Sprachkompetenz
-* **Deutsch:** Fließend
-* **Englisch:** Fließend
-* **Französisch:** Gute Kenntnisse
-* **Arabisch:** Muttersprache
+Statische Website für GitHub Pages, ohne Build-Schritt und ohne Frameworks.
 
-## 🛠️ Tech-Stack
-* **HTML5**
-* **Tailwind CSS** (modernes, responsives Design im Cyber-Stil)
-* **Vanilla JavaScript** (Interaktives Design, mobiles Menü & Canvas-Netzwerkanimationen)
-* **FontAwesome** (Icons)
+```text
+index.html            Inhalte auf Deutsch, Übersetzungen in data-en
+404.html              Fehlerseite
+assets/css/style.css  Design
+assets/js/main.js     Sprachumschalter, Terminal, mobiles Menü
+assets/fonts/         Inter und JetBrains Mono (selbst gehostet, SIL OFL)
+assets/img/           Porträt, Projekt-Screenshots, Favicon
+```
 
-## 🔒 Datenschutzhinweis
-Zum Schutz persönlicher Daten sind vertrauliche Bewerbungsunterlagen (*Lebenslauf*, *Zeugnisse*) nicht öffentlich in diesem Repository hinterlegt. Sie können sicher über das Kontaktformular auf der Website angefordert werden.
+## Datenschutz und Sicherheit
+
+- Keine externen Skripte, Schriften oder Bilder, keine Cookies, kein Tracking.
+- Eine Content Security Policy erlaubt nur Ressourcen aus diesem Repository.
+- Die Sprachauswahl wird lokal im Browser gespeichert (`localStorage`).
+- Bewerbungsunterlagen (Lebenslauf, Zeugnisse) liegen bewusst nicht in diesem Repository. Ich sende sie auf Anfrage per E-Mail.
+
+## Lokal ansehen
+
+```bash
+python -m http.server 8000
+```
+
+Danach `http://localhost:8000` im Browser öffnen.
