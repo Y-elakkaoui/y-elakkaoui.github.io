@@ -95,6 +95,7 @@ const TERMINAL = {
             "01  Standortnetz mit VLANs und OSPF (GNS3)",
             "02  Firewall-Lab mit pfSense (VMware)",
             "03  Scan, Härtung, Re-Scan (Kali, Ubuntu)",
+            "04  Home-SOC-Lab mit Wazuh (Docker)",
             "Details im Abschnitt Projekte."
         ],
         certs: [
@@ -145,6 +146,7 @@ const TERMINAL = {
             "01  Multi-site network with VLANs and OSPF (GNS3)",
             "02  Firewall lab with pfSense (VMware)",
             "03  Scan, hardening, re-scan (Kali, Ubuntu)",
+            "04  Home SOC lab with Wazuh (Docker)",
             "See the Projects section for details."
         ],
         certs: [

@@ -123,7 +123,7 @@
             <dd data-en="German, my daily working language">Deutsch, meine tägliche Arbeitssprache</dd>
         </div>
         <div>
-            <dt>3 Labs</dt>
+            <dt>4 Labs</dt>
             <dd data-en="Self-built and documented on GitHub">Selbst aufgebaut und auf GitHub dokumentiert</dd>
         </div>
     </dl>
@@ -208,7 +208,7 @@
         <span>03.</span>
         <h2 data-en="Projects">Projekte</h2>
     </div>
-    <p class="section-intro" data-en="Three labs I built myself in isolated virtual environments and documented on GitHub. I also show what did not work yet, because in day-to-day IT what counts is checking the result.">Drei Labs, die ich selbst in isolierten virtuellen Umgebungen aufgebaut und auf GitHub dokumentiert habe. Ich zeige auch, was noch nicht funktioniert hat, denn im IT-Alltag zählt das geprüfte Ergebnis.</p>
+    <p class="section-intro" data-en="Four labs I built myself in isolated virtual environments and documented on GitHub. I also show what did not work yet, because in day-to-day IT what counts is checking the result.">Vier Labs, die ich selbst in isolierten virtuellen Umgebungen aufgebaut und auf GitHub dokumentiert habe. Ich zeige auch, was noch nicht funktioniert hat, denn im IT-Alltag zählt das geprüfte Ergebnis.</p>
 
     <div class="projects">
 
@@ -298,6 +298,34 @@
                 <a class="text-link" href="https://github.com/Y-elakkaoui/network-scanner-lab" target="_blank" rel="noopener noreferrer" data-en="Documentation on GitHub ↗">Dokumentation auf GitHub ↗</a>
             </div>
         </article>
+        <article class="project" data-reveal>
+            <div class="project-media">
+                <img src="assets/img/lab-wazuh-alarme.webp" width="1100" height="249" loading="lazy" alt="Wazuh-Alarmliste vom Lab-Lauf: sieben Alarme der Regeln 100100 bis 100105, vom SSH-Brute-Force bis zum geänderten authorized_keys" data-en-alt="Wazuh alert list from the lab run: seven alerts from rules 100100 to 100105, from SSH brute force to the changed authorized_keys">
+            </div>
+            <div class="project-body">
+                <div class="project-label">LAB 04 · SOC</div>
+                <h3 data-en="Home SOC lab with Wazuh">Home-SOC-Lab mit Wazuh</h3>
+                <p data-en="A simulated SSH attack chain against an Ubuntu endpoint in Docker containers: Wazuh is meant to detect each stage, from brute force to persistence. The simulation is harmless and only touches the lab container.">Eine simulierte SSH-Angriffskette gegen einen Ubuntu-Endpunkt in Docker-Containern: Wazuh soll jede Stufe erkennen, vom Brute Force bis zur Persistenz. Die Simulation ist harmlos und betrifft nur den Lab-Container.</p>
+                <dl class="project-points">
+                    <div>
+                        <dt data-en="Built">Umgesetzt</dt>
+                        <dd data-en="Six custom detection rules based on auth.log and file integrity monitoring, mapped to MITRE ATT&amp;CK, plus an incident report with timeline and countermeasures. Created with AI assistance (Claude).">Sechs eigene Erkennungsregeln auf Basis von auth.log und File Integrity Monitoring, MITRE ATT&amp;CK zugeordnet, dazu ein Incident-Report mit Zeitleiste und Gegenmaßnahmen. Erstellt mit KI-Unterstützung (Claude).</dd>
+                    </div>
+                    <div class="result">
+                        <dt data-en="Verified">Geprüft</dt>
+                        <dd data-en="In the documented run all six rules fired. A GitHub Actions workflow repeats the lab and fails if a rule does not fire; its latest run passed.">Im dokumentierten Lauf haben alle sechs Regeln ausgelöst. Ein GitHub-Actions-Workflow wiederholt das Lab und schlägt fehl, wenn eine Regel nicht auslöst; der letzte Lauf war erfolgreich.</dd>
+                    </div>
+                    <div class="open">
+                        <dt data-en="Open">Offen</dt>
+                        <dd data-en="The /etc/shadow rule only sees access through sudo; a root shell would need auditd or similar monitoring. The cron and user-creation rules would also fire on normal admin work and need tuning for production.">Die Regel zu /etc/shadow sieht nur Zugriffe über sudo; eine Root-Shell bräuchte auditd oder ein ähnliches Monitoring. Die Regeln zu Cron und neuen Benutzern würden auch bei normaler Admin-Arbeit auslösen und müssten für den Produktivbetrieb angepasst werden.</dd>
+                    </div>
+                </dl>
+                <ul class="tags">
+                    <li>Wazuh</li><li>Docker</li><li>MITRE ATT&amp;CK</li><li>GitHub Actions</li>
+                </ul>
+                <a class="text-link" href="https://github.com/Y-elakkaoui/home-soc-lab" target="_blank" rel="noopener noreferrer" data-en="Documentation on GitHub ↗">Dokumentation auf GitHub ↗</a>
+            </div>
+        </article>
 
     </div>
 </div>
@@ -315,7 +343,7 @@
         <div class="skill" data-reveal>
             <h3 data-en="Operating systems">Betriebssysteme</h3>
             <p>Windows 10/11, Windows Server, Linux (Ubuntu, Debian, Kali)</p>
-            <small data-en="Applied in: diploma, labs 02 and 03">Angewendet in: Diplom, Labs 02 und 03</small>
+            <small data-en="Applied in: diploma, labs 02 to 04">Angewendet in: Diplom, Labs 02 bis 04</small>
         </div>
         <div class="skill" data-reveal>
             <h3 data-en="Networking">Netzwerke</h3>
@@ -324,8 +352,8 @@
         </div>
         <div class="skill" data-reveal>
             <h3 data-en="Security">Sicherheit</h3>
-            <p data-en="VPN, firewalls, IDS/IPS, pfSense, UFW, Nmap, Nikto, Gobuster">VPN, Firewalls, IDS/IPS, pfSense, UFW, Nmap, Nikto, Gobuster</p>
-            <small data-en="Applied in: internship, labs 02 and 03, Google certificate">Angewendet in: Praktikum, Labs 02 und 03, Google-Zertifikat</small>
+            <p data-en="VPN, firewalls, IDS/IPS, pfSense, UFW, Nmap, Nikto, Gobuster, Wazuh (SIEM), MITRE ATT&amp;CK">VPN, Firewalls, IDS/IPS, pfSense, UFW, Nmap, Nikto, Gobuster, Wazuh (SIEM), MITRE ATT&amp;CK</p>
+            <small data-en="Applied in: internship, labs 02 to 04, Google certificate">Angewendet in: Praktikum, Labs 02 bis 04, Google-Zertifikat</small>
         </div>
         <div class="skill" data-reveal>
             <h3>IT-Service-Management</h3>
@@ -334,8 +362,8 @@
         </div>
         <div class="skill" data-reveal>
             <h3 data-en="Virtualisation">Virtualisierung</h3>
-            <p>VMware Workstation, VirtualBox, GNS3</p>
-            <small data-en="Applied in: diploma, all three labs">Angewendet in: Diplom, allen drei Labs</small>
+            <p>VMware Workstation, VirtualBox, GNS3, Docker</p>
+            <small data-en="Applied in: diploma, all four labs">Angewendet in: Diplom, allen vier Labs</small>
         </div>
         <div class="skill" data-reveal>
             <h3 data-en="Automation and AI">Automatisierung und KI</h3>
