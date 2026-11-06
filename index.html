@@ -231,7 +231,7 @@
                     </div>
                     <div class="open">
                         <dt data-en="Open">Offen</dt>
-                        <dd data-en="No ACLs yet, so the VLANs can still reach each other, and there is only one WAN link. Next step: filter traffic to the guest network and server zone, then document tests.">Noch keine ACLs, die VLANs erreichen sich also weiterhin gegenseitig, und es gibt nur eine WAN-Strecke. Nächster Schritt: Verkehr zu Gäste- und Servernetz filtern und Tests dokumentieren.</dd>
+                        <dd data-en="In GNS3 there are no ACLs yet, and there is only one WAN link. An automated concept retest with FRRouting (AI-assisted) confirms connectivity, the PC3 fix and filter rules. Next step: apply them on the Cisco routers in GNS3.">In GNS3 gibt es noch keine ACLs und nur eine WAN-Strecke. Ein automatisierter Konzept-Nachtest mit FRRouting (KI-gestützt) bestätigt Verbindungen, die PC3-Korrektur und Filterregeln. Nächster Schritt: auf die Cisco-Router in GNS3 übertragen.</dd>
                     </div>
                 </dl>
                 <ul class="tags">
@@ -260,7 +260,7 @@
                     </div>
                     <div>
                         <dt data-en="Next">Nächstes</dt>
-                        <dd data-en="Move Kali to its own network segment and repeat the scan.">Kali in ein eigenes Netzsegment legen und den Scan wiederholen.</dd>
+                        <dd data-en="An automated concept retest with Linux (AI-assisted) confirms it: with the attacker in its own segment, port 80 is filtered. Next step: repeat this on pfSense.">Ein automatisierter Konzept-Nachtest mit Linux (KI-gestützt) bestätigt es: Mit dem Angreifer im eigenen Segment ist Port 80 gefiltert. Nächster Schritt: das Gleiche mit pfSense wiederholen.</dd>
                     </div>
                 </dl>
                 <ul class="tags">
@@ -289,7 +289,7 @@
                     </div>
                     <div class="open">
                         <dt data-en="Open">Offen</dt>
-                        <dd data-en="The server header still shows Apache/2.4.58. The cause is one line in the configuration: ServerTokens off instead of ServerSignature Off. A directory listing also appears now instead of the default page. Both are the next hardening step.">Der Server-Header nennt weiter Apache/2.4.58. Ursache ist eine Zeile in der Konfiguration: ServerTokens off statt ServerSignature Off. Außerdem erscheint statt der Standardseite ein Verzeichnislisting. Beides ist der nächste Härtungsschritt.</dd>
+                        <dd data-en="The server header still showed Apache/2.4.58 and a directory listing appeared. Apache rejects the line ServerTokens off as a syntax error. The corrected configuration passed an automated retest in Docker (AI-assisted). Next step: repeat it on the original VM.">Der Server-Header nannte weiter Apache/2.4.58, außerdem erschien ein Verzeichnislisting. Apache lehnt die Zeile ServerTokens off als Syntaxfehler ab. Die korrigierte Konfiguration hat einen automatisierten Nachtest in Docker bestanden (KI-gestützt). Nächster Schritt: auf der ursprünglichen VM wiederholen.</dd>
                     </div>
                 </dl>
                 <ul class="tags">
