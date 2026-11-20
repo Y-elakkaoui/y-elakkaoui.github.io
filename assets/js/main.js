@@ -96,6 +96,7 @@ const TERMINAL = {
             "02  Firewall-Lab mit pfSense (VMware)",
             "03  Scan, Härtung, Re-Scan (Kali, Ubuntu)",
             "04  Home-SOC-Lab mit Wazuh (Docker)",
+            "05  Windows-Firmennetz mit Active Directory",
             "Details im Abschnitt Projekte."
         ],
         certs: [
@@ -147,6 +148,7 @@ const TERMINAL = {
             "02  Firewall lab with pfSense (VMware)",
             "03  Scan, hardening, re-scan (Kali, Ubuntu)",
             "04  Home SOC lab with Wazuh (Docker)",
+            "05  Windows company network with Active Directory",
             "See the Projects section for details."
         ],
         certs: [
